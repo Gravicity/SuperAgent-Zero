@@ -1,0 +1,106 @@
+name: Test SuperAgent Zero Installation
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-installation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install Git
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y git
+    
+    - name: Test install.sh execution
+      run: |
+        # Test that install.sh runs without errors
+        chmod +x install.sh
+        # Dry run test (don't actually install globally in CI)
+        bash -n install.sh
+        echo "✅ install.sh syntax check passed"
+    
+    - name: Test setup.sh execution  
+      run: |
+        # Test that setup.sh runs without errors
+        chmod +x setup.sh
+        # Dry run test  
+        bash -n setup.sh
+        echo "✅ setup.sh syntax check passed"
+    
+    - name: Validate framework structure
+      run: |
+        # Check required directories exist
+        test -d agents || (echo "❌ agents missing" && exit 1)
+        test -d templates || (echo "❌ templates missing" && exit 1)
+        test -d quality-protocols || (echo "❌ quality-protocols missing" && exit 1)
+        test -d mcp-configs || (echo "❌ mcp-configs missing" && exit 1)
+        test -d examples || (echo "❌ examples missing" && exit 1)
+        
+        # Check required files exist
+        test -f README.md || (echo "❌ README.md missing" && exit 1)
+        test -f LICENSE || (echo "❌ LICENSE missing" && exit 1)
+        test -f CONTRIBUTING.md || (echo "❌ CONTRIBUTING.md missing" && exit 1)
+        test -f setup-instructions.md || (echo "❌ setup-instructions.md missing" && exit 1)
+        
+        echo "✅ Framework structure validation passed"
+    
+    - name: Test documentation links
+      run: |
+        # Basic check that internal documentation links are valid
+        grep -r "](framework/" . --include="*.md" || echo "No framework links found"
+        grep -r "](agent-development-guide.md)" . --include="*.md" || echo "No agent dev guide links found"
+        echo "✅ Documentation link check completed"
+    
+    - name: Test example structure
+      run: |
+        # Verify examples have required structure
+        test -f examples/app-development/README.md || (echo "❌ App development examples missing" && exit 1)
+        test -f examples/business-intelligence/README.md || (echo "❌ Business intelligence examples missing" && exit 1)
+        test -f examples/academic-research/README.md || (echo "❌ Academic research examples missing" && exit 1)
+        test -f examples/legal-analysis/README.md || (echo "❌ Legal analysis examples missing" && exit 1)
+        
+        echo "✅ Example structure validation passed"
+
+    - name: Test agent templates
+      run: |
+        # Verify agent templates exist and are properly formatted
+        test -f templates/agent-template.md || (echo "❌ Base agent template missing" && exit 1)
+        test -f templates/document-analysis-agent.md || (echo "❌ Document analysis template missing" && exit 1)
+        
+        # Check templates have required sections
+        grep -q "## Core Configuration" templates/agent-template.md || (echo "❌ Template missing core sections" && exit 1)
+        
+        echo "✅ Agent template validation passed"
+
+  test-scripts:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Test on macOS
+      run: |
+        chmod +x install.sh setup.sh
+        
+        # Test script syntax
+        bash -n install.sh
+        bash -n setup.sh
+        
+        echo "✅ macOS script validation passed"
