@@ -42,7 +42,7 @@ validate_framework() {
         print_error "SuperAgent Zero not installed globally."
         echo ""
         echo "Please install SuperAgent Zero first:"
-        echo "  curl -sSL https://raw.githubusercontent.com/your-username/SuperAgent-Zero/main/install.sh | bash"
+        echo "  curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash"
         echo ""
         exit 1
     fi

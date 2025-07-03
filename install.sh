@@ -7,7 +7,7 @@ set -e  # Exit on any error
 
 # Configuration
 INSTALL_DIR="$HOME/.superagent-zero"
-REPO_URL="https://github.com/your-username/SuperAgent-Zero.git"
+REPO_URL="https://github.com/Gravicity/SuperAgent-Zero.git"
 VERSION="1.0.0"
 
 # Color codes for output
@@ -128,7 +128,7 @@ create_helpers() {
 #!/bin/bash
 # SuperAgent Zero Framework Updater
 echo "🔄 Updating SuperAgent Zero framework..."
-curl -sSL https://raw.githubusercontent.com/your-username/SuperAgent-Zero/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
 echo "✅ Update completed!"
 EOF
     chmod +x "$INSTALL_DIR/bin/update.sh"

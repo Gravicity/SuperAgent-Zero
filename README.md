@@ -84,10 +84,10 @@ Install SuperAgent Zero once, use everywhere:
 
 ```bash
 # Install SuperAgent Zero globally
-curl -sSL https://raw.githubusercontent.com/your-username/SuperAgent-Zero/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
 
 # Or download and run manually:
-git clone https://github.com/your-username/SuperAgent-Zero.git
+git clone https://github.com/Gravicity/SuperAgent-Zero.git
 cd SuperAgent-Zero
 ./install.sh
 ```
@@ -336,7 +336,7 @@ SuperAgent Zero brings persistent intelligence, specialized expertise, and quali
 
 ```bash
 # Install once, use everywhere
-curl -sSL https://raw.githubusercontent.com/your-username/SuperAgent-Zero/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
 
 # Then in any project:
 cd your-project && claude-code
