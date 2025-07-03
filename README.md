@@ -98,7 +98,7 @@ cd SuperAgent-Zero
 
 ## 🎯 Usage
 
-### 2-Step Activation Process
+### 3-Step Activation Process
 
 #### Step 1: Navigate to Your Project
 ```bash
@@ -112,7 +112,11 @@ claude-code
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 ```
 
-*Claude will automatically read the initialization file and assume its role as Agent 0*
+#### Step 3: Activate Agent 0 Capabilities
+```bash
+# Tell Claude to read its new role and capabilities
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+```
 
 ### What Happens During Setup
 When Claude runs the setup script:
