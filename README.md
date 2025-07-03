@@ -98,7 +98,7 @@ cd SuperAgent-Zero
 
 ## 🎯 Usage
 
-### 3-Step Activation Process
+### 2-Step Activation Process
 
 #### Step 1: Navigate to Your Project
 ```bash
@@ -112,11 +112,7 @@ claude-code
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 ```
 
-#### Step 3: Activate Agent 0 Capabilities
-```bash
-# Tell Claude to read its new role and capabilities
-> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
-```
+*Claude will automatically read the initialization file and assume its role as Agent 0*
 
 ### What Happens During Setup
 When Claude runs the setup script:
@@ -174,10 +170,7 @@ claude-code
 # Step 1: Initialize framework
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 
-# Step 2: Activate Agent 0
-> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
-
-# Step 3: Deploy mission
+# Step 2: Deploy mission (Claude automatically becomes Agent 0)
 > "As Agent 0, analyze this React application for security vulnerabilities, performance optimization opportunities, and code quality improvements. Deploy specialized agents as needed."
 
 # Agent 0 will:
@@ -196,10 +189,7 @@ claude-code
 # Step 1: Initialize framework
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 
-# Step 2: Activate Agent 0
-> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
-
-# Step 3: Deploy mission
+# Step 2: Deploy mission (Claude automatically becomes Agent 0)
 > "As Agent 0, analyze our market research documents to identify competitive advantages and strategic opportunities. Coordinate specialized agents for comprehensive analysis."
 
 # Agent 0 will:
@@ -218,10 +208,7 @@ claude-code
 # Step 1: Initialize framework
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 
-# Step 2: Activate Agent 0
-> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
-
-# Step 3: Deploy mission
+# Step 2: Deploy mission (Claude automatically becomes Agent 0)
 > "As Agent 0, help me conduct a systematic literature review on AI in healthcare. Deploy research agents and coordinate comprehensive analysis."
 
 # Agent 0 will:
@@ -442,7 +429,7 @@ SuperAgent Zero brings persistent intelligence, specialized expertise, and quali
 
 ## 🚀 Ready to Get Started?
 
-### Complete 3-Step Process
+### Complete 2-Step Process
 
 ```bash
 # Step 1: Install globally (one-time)
@@ -453,8 +440,7 @@ cd your-project
 claude-code
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 
-# Step 3: Activate Agent 0
-> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+# Claude automatically becomes Agent 0 and is ready for missions
 ```
 
 ### First Mission Examples

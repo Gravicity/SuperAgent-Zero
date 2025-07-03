@@ -83,8 +83,7 @@ claude-code
 # Step 1: Run setup script
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 
-# Step 2: Activate Agent 0
-> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+# Claude automatically becomes Agent 0
 ```
 
 ### What Happens During Initialization
@@ -186,7 +185,7 @@ docker images | grep mcp-
 cd ~/my-react-app
 claude-code
 > "Execute: ~/.superagent-zero/setup.sh"
-> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
+# Claude automatically becomes Agent 0
 > "As Agent 0, perform comprehensive code analysis"
 
 # SuperAgent Zero will:
@@ -220,7 +219,7 @@ claude-code
 cd ~/phd-research
 claude-code
 > "Execute: ~/.superagent-zero/setup.sh"
-> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
+# Claude automatically becomes Agent 0
 > "As Agent 0, coordinate systematic literature review"
 
 # SuperAgent Zero will:
@@ -264,7 +263,7 @@ rm -rf .superagent/
 # Then reinitialize
 claude-code
 > "Execute: ~/.superagent-zero/setup.sh"
-> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
+# Claude automatically becomes Agent 0
 ```
 
 ---
@@ -287,7 +286,7 @@ curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/insta
 cd your-project
 claude-code
 > "Execute: ~/.superagent-zero/setup.sh"
-> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
+# Claude automatically becomes Agent 0
 ```
 
 #### MCP Servers Not Connecting
@@ -354,12 +353,12 @@ ls ~/.superagent-zero/quality-protocols/
 cd ~/project-1
 claude-code
 > "Execute: ~/.superagent-zero/setup.sh"
-> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
+# Claude automatically becomes Agent 0
 
 cd ~/project-2  
 claude-code
 > "Execute: ~/.superagent-zero/setup.sh"
-> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
+# Claude automatically becomes Agent 0
 # Inherits improvements from project-1
 ```
 
@@ -411,7 +410,7 @@ cd your-project
 rm -rf .superagent/
 claude-code
 > "Execute: ~/.superagent-zero/setup.sh"
-> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
+# Claude automatically becomes Agent 0
 ```
 
 ---

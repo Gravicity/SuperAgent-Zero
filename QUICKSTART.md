@@ -1,5 +1,5 @@
 # SuperAgent Zero Quick Start
-## Get Up and Running in 3 Minutes
+## Get Up and Running in 2 Minutes
 
 ### 🚀 Step 1: Install SuperAgent Zero (One-Time)
 ```bash
@@ -16,18 +16,11 @@ claude-code
 
 # Run the setup script
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
+
+# Claude automatically becomes Agent 0
 ```
 
-### ✨ Step 3: Activate Agent 0
-```bash
-# Tell Claude to read its new role
-> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
-
-# Verify activation
-> "What is your current role and what are your capabilities?"
-```
-
-### 🎯 Step 4: Deploy Your First Mission
+### 🎯 Step 3: Deploy Your First Mission
 ```bash
 # Example commands for Agent 0:
 > "As Agent 0, analyze this codebase comprehensively and deploy specialized agents as needed"
