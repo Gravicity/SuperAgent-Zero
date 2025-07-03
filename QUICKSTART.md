@@ -1,47 +1,56 @@
 # SuperAgent Zero Quick Start
-## Get Up and Running in 2 Minutes
+## Get Up and Running in 3 Minutes
 
 ### 🚀 Step 1: Install SuperAgent Zero (One-Time)
 ```bash
-curl -sSL https://raw.githubusercontent.com/your-username/SuperAgent-Zero/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
 ```
 
-### 🎯 Step 2: Use in Any Project
+### 🎯 Step 2: Setup in Your Project
 ```bash
-# Navigate to your actual project
-cd ~/my-project
+# Navigate to your project
+cd ~/your-project
 
 # Start Claude Code
 claude-code
 
-# Activate SuperAgent Zero
-> "Initialize SuperAgent Zero for this project"
+# Run the setup script
+> "Execute this bash command: ~/.superagent-zero/setup.sh"
 ```
 
-### ✨ Step 3: Deploy Specialized Agents
+### ✨ Step 3: Activate Agent 0
 ```bash
-# Example commands for Claude:
-> "Analyze this codebase and recommend optimizations"
-> "Create specialized agents for security auditing"  
-> "Deploy document analysis agents for these files"
-> "Coordinate multiple agents for comprehensive analysis"
+# Tell Claude to read its new role
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+
+# Verify activation
+> "What is your current role and what are your capabilities?"
+```
+
+### 🎯 Step 4: Deploy Your First Mission
+```bash
+# Example commands for Agent 0:
+> "As Agent 0, analyze this codebase comprehensively and deploy specialized agents as needed"
+> "Create document analysis agents to process all files in this project"  
+> "Deploy security auditing agents and coordinate their findings"
+> "Establish quality assurance protocols and begin comprehensive analysis"
 ```
 
 ## 🎓 Common First Missions
 
 ### For Software Projects
 ```
-"Initialize SuperAgent Zero and perform comprehensive code analysis including security vulnerabilities, performance optimization, and documentation generation."
+"As Agent 0, perform comprehensive code analysis including security vulnerabilities, performance optimization, and documentation generation. Deploy specialized agents for each area."
 ```
 
 ### For Business Analysis
 ```
-"Initialize SuperAgent Zero and analyze our business documents to identify strategic opportunities and create executive recommendations."
+"As Agent 0, analyze our business documents to identify strategic opportunities and create executive recommendations. Coordinate document analysis and research agents."
 ```
 
 ### For Research Projects
 ```
-"Initialize SuperAgent Zero and help me conduct systematic analysis of these research materials with proper citation management."
+"As Agent 0, help me conduct systematic analysis of these research materials with proper citation management. Deploy research and literature analysis agents."
 ```
 
 ## 📚 What You Get

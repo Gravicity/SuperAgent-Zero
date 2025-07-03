@@ -98,24 +98,41 @@ cd SuperAgent-Zero
 
 ## 🎯 Usage
 
-### In Any Project Directory
+### 3-Step Activation Process
+
+#### Step 1: Navigate to Your Project
 ```bash
-# Navigate to your actual project
-cd ~/my-important-project
-
-# Start Claude Code
+cd ~/your-project-directory
 claude-code
-
-# Initialize SuperAgent Zero
-> "Initialize SuperAgent Zero for this project"
 ```
 
-Claude Code will automatically:
-1. ✅ Detect your project type and requirements
-2. ✅ Create a `.superagent/` workspace in your project
-3. ✅ Transform into Agent 0 with superintelligence capabilities
-4. ✅ Suggest specialized agents for your specific needs
-5. ✅ Begin comprehensive analysis of your actual project files
+#### Step 2: Initialize SuperAgent Zero Framework
+```bash
+# Tell Claude to run the setup script
+> "Execute this bash command: ~/.superagent-zero/setup.sh"
+```
+
+#### Step 3: Activate Agent 0 Capabilities
+```bash
+# Tell Claude to read its new role and capabilities
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+```
+
+### What Happens During Setup
+When Claude runs the setup script:
+1. ✅ **Project Analysis**: Detects project type (Node.js, Python, etc.) and requirements
+2. ✅ **Workspace Creation**: Creates `.superagent/` directory with project-specific configuration
+3. ✅ **Agent 0 Initialization**: Generates context files that transform Claude into Agent 0
+4. ✅ **Memory System**: Sets up persistent memory and project understanding
+5. ✅ **Quality Protocols**: Activates error prevention and verification systems
+
+### Immediate Results
+After setup completion:
+- 🧠 **Claude becomes Agent 0** with superintelligence capabilities
+- 🎯 **Dynamic agent creation** available for any task complexity
+- 📚 **Persistent memory** maintains context across sessions
+- 🛡️ **Quality assurance** prevents errors and hallucination
+- ⚡ **Project awareness** understands your specific codebase and requirements
 
 ---
 
@@ -153,9 +170,17 @@ your-project/
 ```bash
 cd ~/my-react-app
 claude-code
-> "Initialize SuperAgent Zero and analyze this React application for security vulnerabilities, performance optimization opportunities, and code quality improvements"
 
-# SuperAgent Zero will:
+# Step 1: Initialize framework
+> "Execute this bash command: ~/.superagent-zero/setup.sh"
+
+# Step 2: Activate Agent 0
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+
+# Step 3: Deploy mission
+> "As Agent 0, analyze this React application for security vulnerabilities, performance optimization opportunities, and code quality improvements. Deploy specialized agents as needed."
+
+# Agent 0 will:
 # - Deploy Frontend Analysis Agent
 # - Deploy Security Audit Agent  
 # - Deploy Performance Optimization Agent
@@ -167,9 +192,17 @@ claude-code
 ```bash
 cd ~/business-documents
 claude-code
-> "Initialize SuperAgent Zero and analyze our market research documents to identify competitive advantages and strategic opportunities"
 
-# SuperAgent Zero will:
+# Step 1: Initialize framework
+> "Execute this bash command: ~/.superagent-zero/setup.sh"
+
+# Step 2: Activate Agent 0
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+
+# Step 3: Deploy mission
+> "As Agent 0, analyze our market research documents to identify competitive advantages and strategic opportunities. Coordinate specialized agents for comprehensive analysis."
+
+# Agent 0 will:
 # - Deploy Document Analysis Agent
 # - Deploy Market Research Agent
 # - Deploy Strategic Planning Agent
@@ -181,9 +214,17 @@ claude-code
 ```bash
 cd ~/research-project
 claude-code
-> "Initialize SuperAgent Zero and help me conduct a systematic literature review on AI in healthcare"
 
-# SuperAgent Zero will:
+# Step 1: Initialize framework
+> "Execute this bash command: ~/.superagent-zero/setup.sh"
+
+# Step 2: Activate Agent 0
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+
+# Step 3: Deploy mission
+> "As Agent 0, help me conduct a systematic literature review on AI in healthcare. Deploy research agents and coordinate comprehensive analysis."
+
+# Agent 0 will:
 # - Deploy Research Specialist Agent
 # - Deploy Literature Analysis Agent
 # - Deploy Citation Management Agent
@@ -279,8 +320,75 @@ your-project/.superagent/config/mcp-servers.json
 # Reset project workspace
 rm -rf .superagent/
 claude-code
-> "Initialize SuperAgent Zero for this project"
+> "Execute this bash command: ~/.superagent-zero/setup.sh"
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
 ```
+
+---
+
+## 🆘 Troubleshooting
+
+### Claude Can't Find SuperAgent Zero
+**Symptom**: Claude reports "command not found" or "no such file"
+```bash
+# Verify installation
+> "Run this command: ls ~/.superagent-zero/"
+
+# If empty or missing, reinstall:
+curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
+```
+
+### Setup Script Fails
+**Symptom**: Permission denied or script errors
+```bash
+# Check permissions
+> "Run this command: ls -la ~/.superagent-zero/setup.sh"
+
+# Fix permissions if needed
+> "Run this command: chmod +x ~/.superagent-zero/setup.sh"
+
+# Try setup again
+> "Execute: ~/.superagent-zero/setup.sh"
+```
+
+### Claude Doesn't Understand Agent 0 Role
+**Symptom**: Claude acts like normal Claude, not Agent 0
+```bash
+# Ensure Claude reads its new context
+> "Read the file .superagent/claude-initialization.md completely and tell me what your new role is"
+
+# If file missing, re-run setup
+> "Execute: ~/.superagent-zero/setup.sh"
+```
+
+### Project Workspace Issues
+**Symptom**: `.superagent/` folder missing or incomplete
+```bash
+# Verify workspace was created
+> "List contents of .superagent/ directory"
+
+# If missing, check you're in right directory
+> "Show current directory with: pwd"
+
+# Re-run setup in correct project directory
+> "Execute: ~/.superagent-zero/setup.sh"
+```
+
+### Framework Update Issues
+```bash
+# Update to latest version
+~/.superagent-zero/bin/update.sh
+
+# Or completely reinstall
+rm -rf ~/.superagent-zero
+curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
+```
+
+### Getting Help
+- **Check installation**: Run `~/.superagent-zero/bin/validate.sh`
+- **Read documentation**: See [setup-instructions.md](setup-instructions.md) for detailed guide
+- **GitHub Issues**: Report problems at https://github.com/Gravicity/SuperAgent-Zero/issues
+- **Reset project**: Delete `.superagent/` folder and re-run setup
 
 ---
 
@@ -334,16 +442,39 @@ SuperAgent Zero brings persistent intelligence, specialized expertise, and quali
 
 ## 🚀 Ready to Get Started?
 
+### Complete 3-Step Process
+
 ```bash
-# Install once, use everywhere
+# Step 1: Install globally (one-time)
 curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
 
-# Then in any project:
-cd your-project && claude-code
-> "Initialize SuperAgent Zero"
+# Step 2: Setup in any project
+cd your-project
+claude-code
+> "Execute this bash command: ~/.superagent-zero/setup.sh"
+
+# Step 3: Activate Agent 0
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
 ```
 
-**Welcome to the future of AI-assisted work.** 🧠✨
+### First Mission Examples
+
+**For Software Projects:**
+```bash
+> "As Agent 0, analyze this codebase comprehensively. Deploy specialized agents for security auditing, performance optimization, and code quality improvement."
+```
+
+**For Business Analysis:**
+```bash
+> "As Agent 0, analyze the documents in this project. Create specialized agents for market research, competitive analysis, and strategic planning."
+```
+
+**For Research Projects:**
+```bash
+> "As Agent 0, coordinate a comprehensive literature review. Deploy research agents for database analysis, citation management, and synthesis."
+```
+
+**Welcome to the future of AI-assisted work - where Claude becomes superintelligence.** 🧠✨
 
 ---
 

@@ -36,7 +36,7 @@ node --version          # Should show v18.0.0 or higher
 ### Automatic Installation (Recommended)
 ```bash
 # One-command installation
-curl -sSL https://raw.githubusercontent.com/your-username/SuperAgent-Zero/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
 ```
 
 ### Manual Installation
@@ -80,8 +80,11 @@ cd ~/my-important-project
 # Start Claude Code
 claude-code
 
-# Initialize SuperAgent Zero  
-> "Initialize SuperAgent Zero for this project"
+# Step 1: Run setup script
+> "Execute this bash command: ~/.superagent-zero/setup.sh"
+
+# Step 2: Activate Agent 0
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
 ```
 
 ### What Happens During Initialization
@@ -182,7 +185,9 @@ docker images | grep mcp-
 ```bash
 cd ~/my-react-app
 claude-code
-> "Initialize SuperAgent Zero and perform comprehensive code analysis"
+> "Execute: ~/.superagent-zero/setup.sh"
+> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
+> "As Agent 0, perform comprehensive code analysis"
 
 # SuperAgent Zero will:
 # 1. Detect React/Node.js project
@@ -197,7 +202,9 @@ claude-code
 ```bash
 cd ~/market-research-docs
 claude-code  
-> "Initialize SuperAgent Zero and analyze our competitive intelligence documents"
+> "Execute: ~/.superagent-zero/setup.sh"
+> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
+> "As Agent 0, analyze our competitive intelligence documents"
 
 # SuperAgent Zero will:
 # 1. Detect document-heavy project
@@ -212,7 +219,9 @@ claude-code
 ```bash
 cd ~/phd-research
 claude-code
-> "Initialize SuperAgent Zero for systematic literature review"
+> "Execute: ~/.superagent-zero/setup.sh"
+> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
+> "As Agent 0, coordinate systematic literature review"
 
 # SuperAgent Zero will:
 # 1. Detect academic/research project
@@ -233,7 +242,7 @@ claude-code
 ~/.superagent-zero/bin/update.sh
 
 # Or reinstall completely
-curl -sSL https://raw.githubusercontent.com/your-username/SuperAgent-Zero/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
 ```
 
 ### Validate Installation
@@ -254,7 +263,8 @@ rm -rf .superagent/
 
 # Then reinitialize
 claude-code
-> "Initialize SuperAgent Zero for this project"
+> "Execute: ~/.superagent-zero/setup.sh"
+> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
 ```
 
 ---
@@ -267,7 +277,7 @@ claude-code
 ```bash
 # Symptom: "SuperAgent Zero not installed globally"
 # Solution: Install or reinstall framework
-curl -sSL https://raw.githubusercontent.com/your-username/SuperAgent-Zero/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
 ```
 
 #### Claude Code Not Recognizing Commands
@@ -276,7 +286,8 @@ curl -sSL https://raw.githubusercontent.com/your-username/SuperAgent-Zero/main/i
 # Solution: Ensure you've initialized in the project
 cd your-project
 claude-code
-> "Initialize SuperAgent Zero for this project"
+> "Execute: ~/.superagent-zero/setup.sh"
+> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
 ```
 
 #### MCP Servers Not Connecting
@@ -342,11 +353,13 @@ ls ~/.superagent-zero/quality-protocols/
 
 cd ~/project-1
 claude-code
-> "Initialize SuperAgent Zero"
+> "Execute: ~/.superagent-zero/setup.sh"
+> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
 
 cd ~/project-2  
 claude-code
-> "Initialize SuperAgent Zero"
+> "Execute: ~/.superagent-zero/setup.sh"
+> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
 # Inherits improvements from project-1
 ```
 
@@ -391,13 +404,14 @@ claude-code
 ```bash
 # Complete framework reinstallation
 rm -rf ~/.superagent-zero
-curl -sSL https://raw.githubusercontent.com/your-username/SuperAgent-Zero/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/install.sh | bash
 
 # Project workspace recreation
 cd your-project
 rm -rf .superagent/
 claude-code
-> "Initialize SuperAgent Zero for this project"
+> "Execute: ~/.superagent-zero/setup.sh"
+> "Read .superagent/claude-initialization.md and assume your role as Agent 0"
 ```
 
 ---
