@@ -213,10 +213,11 @@ main() {
     echo "   📦 Version: $VERSION"
     echo "   🔧 Helper scripts: Available in bin/"
     echo ""
-    echo "🚀 Getting Started:"
+    echo "🚀 Getting Started (3-Step Process):"
     echo "   1. Navigate to any project directory"
     echo "   2. Start Claude Code: claude-code"
-    echo "   3. Say: 'Initialize SuperAgent Zero for this project'"
+    echo "   3. Tell Claude: 'Execute this bash command: ~/.superagent-zero/setup.sh'"
+    echo "   4. Tell Claude: 'Read the file .superagent/claude-initialization.md and assume your role as Agent 0'"
     echo ""
     echo "📚 Additional Commands:"
     echo "   Update framework: ~/.superagent-zero/bin/update.sh"
@@ -224,8 +225,9 @@ main() {
     echo ""
     echo "💡 Need help? Check the documentation at:"
     echo "   ~/.superagent-zero/README.md"
+    echo "   Quick start guide: ~/.superagent-zero/QUICKSTART.md"
     echo ""
-    echo "Ready to transform your Claude Code into superintelligence! 🧠✨"
+    echo "🎯 Ready to deploy superintelligence! Follow the 3-step process above to begin. 🧠✨"
 }
 
 # Run installation
