@@ -290,21 +290,6 @@ your-project/.superagent/config/mcp-servers.json
 
 ---
 
-## 📚 Documentation
-
-### Core Documentation
-- [Agent Development Guide](agent-development-guide.md) - Creating custom agents
-- [MCP Integration Manual](mcp-integration-manual.md) - External tool connectivity
-- [Quality Protocols](quality-protocols/) - Error prevention and verification
-
-### Examples & Tutorials
-- [Software Development](examples/app-development/) - Code analysis and optimization
-- [Business Intelligence](examples/business-intelligence/) - Market research and strategy
-- [Academic Research](examples/academic-research/) - Literature review and analysis
-- [Legal Analysis](examples/legal-analysis/) - Document analysis and case research
-
----
-
 ## 🛠️ Maintenance & Updates
 
 ### Update Framework
