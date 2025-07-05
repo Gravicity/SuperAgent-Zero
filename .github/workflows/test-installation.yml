@@ -43,24 +43,27 @@ jobs:
       run: |
         # Check required directories exist
         test -d agents || (echo "❌ agents missing" && exit 1)
-        test -d templates || (echo "❌ templates missing" && exit 1)
-        test -d quality-protocols || (echo "❌ quality-protocols missing" && exit 1)
+        test -d agents/agent-00-command || (echo "❌ agent-00-command missing" && exit 1)
         test -d mcp-configs || (echo "❌ mcp-configs missing" && exit 1)
         test -d examples || (echo "❌ examples missing" && exit 1)
+        test -d bin || (echo "❌ bin missing" && exit 1)
         
         # Check required files exist
         test -f README.md || (echo "❌ README.md missing" && exit 1)
+        test -f QUICKSTART.md || (echo "❌ QUICKSTART.md missing" && exit 1)
         test -f LICENSE || (echo "❌ LICENSE missing" && exit 1)
         test -f CONTRIBUTING.md || (echo "❌ CONTRIBUTING.md missing" && exit 1)
-        test -f setup-instructions.md || (echo "❌ setup-instructions.md missing" && exit 1)
+        test -f VERSION || (echo "❌ VERSION missing" && exit 1)
+        test -f .gitignore || (echo "❌ .gitignore missing" && exit 1)
+        test -f .gitattributes || (echo "❌ .gitattributes missing" && exit 1)
         
         echo "✅ Framework structure validation passed"
     
     - name: Test documentation links
       run: |
         # Basic check that internal documentation links are valid
-        grep -r "](framework/" . --include="*.md" || echo "No framework links found"
-        grep -r "](agent-development-guide.md)" . --include="*.md" || echo "No agent dev guide links found"
+        grep -r "claude-initialization.md" . --include="*.md" || echo "No claude-initialization references found"
+        grep -r "Agent-Creation-Templates.md" . --include="*.md" || echo "No agent template references found"
         echo "✅ Documentation link check completed"
     
     - name: Test example structure
@@ -73,16 +76,24 @@ jobs:
         
         echo "✅ Example structure validation passed"
 
-    - name: Test agent templates
+    - name: Test agent framework
       run: |
-        # Verify agent templates exist and are properly formatted
-        test -f templates/agent-template.md || (echo "❌ Base agent template missing" && exit 1)
-        test -f templates/document-analysis-agent.md || (echo "❌ Document analysis template missing" && exit 1)
+        # Verify agent framework files exist and are properly formatted
+        test -f agents/agent-00-command/Agent-0-Command-Center.md || (echo "❌ Agent 0 Command Center missing" && exit 1)
+        test -f agents/agent-00-command/Agent-Creation-Templates.md || (echo "❌ Agent Creation Templates missing" && exit 1)
+        test -f agents/agent-00-command/Memory-and-Strategy.md || (echo "❌ Memory and Strategy missing" && exit 1)
         
-        # Check templates have required sections
-        grep -q "## Core Configuration" templates/agent-template.md || (echo "❌ Template missing core sections" && exit 1)
+        # Check agent files have required sections
+        grep -q "## Agent Selection Guide" agents/agent-00-command/Agent-0-Command-Center.md || (echo "❌ Command Center missing core sections" && exit 1)
+        grep -q "## Pre-Built Agent Types" agents/agent-00-command/Agent-Creation-Templates.md || (echo "❌ Templates missing core sections" && exit 1)
         
-        echo "✅ Agent template validation passed"
+        # Test utility scripts
+        test -f bin/update.sh || (echo "❌ Update script missing" && exit 1)
+        test -f bin/validate.sh || (echo "❌ Validate script missing" && exit 1)
+        test -x bin/update.sh || (echo "❌ Update script not executable" && exit 1)
+        test -x bin/validate.sh || (echo "❌ Validate script not executable" && exit 1)
+        
+        echo "✅ Agent framework validation passed"
 
   test-scripts:
     runs-on: macos-latest
