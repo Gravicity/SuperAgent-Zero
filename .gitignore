@@ -1,36 +1,31 @@
-# SuperAgent Zero Release Repository .gitignore
-
-# Generated files (created by install.sh/setup.sh)
-VERSION
-framework-registry.json
-cache/
-logs/
-
-# User-specific configurations  
-config.local
-*.local
-
-# Runtime and temporary files
-*.log
-temp/
-.temp/
-*.tmp
-*.temp
-
-# Environment files
-.env
-.env.local
-.env.*.local
-
-# Node.js dependencies (if any)
+# Node.js dependencies
 node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
+
+# Package manager files
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
 
-# Operating system files
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Runtime and build files
+.next/
+.nuxt/
+dist/
+build/
+out/
+coverage/
+
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -39,77 +34,57 @@ yarn.lock
 ehthumbs.db
 Thumbs.db
 
-# Editor and IDE files
+# IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-.sublime-project
-.sublime-workspace
 
-# Python (if using Python MCP servers)
+# Logs
+logs
+*.log
+
+# MCP server temporary files
+.mcp-temp/
+.mcp-cache/
+
+# SuperAgent Zero workspace files (project-specific)
+.superagent/workspace/temp/
+.superagent/workspace/logs/
+.superagent/workspace/cache/
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Python cache files (if any Python tools are used)
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 
-# Docker
-.dockerignore
-docker-compose.override.yml
+# Local configuration overrides
+local-config.json
+.local
 
-# Claude Code specific
-.claude/
-claude-*.log
-
-# MCP Server specific
-mcp-*.pid
-mcp-server-*.log
-
-# Project workspace directories (created by users)
-.superagent/
-*/.superagent/
-
-# Backup files
-*.bak
-*.backup
-*~
-
-# Archive files
-*.zip
-*.tar.gz
-*.tar.bz2
-*.rar
-*.7z
-
-# Test and development artifacts
-test-results/
+# Testing
+.nyc_output/
 coverage/
-.pytest_cache/
 .coverage
 
-# Documentation build artifacts
-docs/_build/
-docs/.vuepress/dist/
+# Documentation build
+docs/.vuepress/dist
+docs/.vitepress/dist
 
-# IDE-specific files
-*.iml
-.project
-.classpath
-.settings/
+# Miscellaneous
+*.tgz
+*.tar.gz
+.cache
+.parcel-cache
+EOF < /dev/null

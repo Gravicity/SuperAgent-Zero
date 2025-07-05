@@ -126,11 +126,18 @@ create_workspace() {
     # Check if workspace already exists
     if [ -d "$WORKSPACE_DIR" ]; then
         print_warning "SuperAgent Zero workspace already exists at .superagent/"
-        read -p "Do you want to reinitialize? (y/N): " -n 1 -r
-        echo
-        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-            print_status "Keeping existing workspace"
-            return 0
+        # Auto-reinitialize when run non-interactively (e.g., from Claude Code)
+        if [[ -t 0 ]]; then
+            # Interactive mode - ask user
+            read -p "Do you want to reinitialize? (y/N): " -n 1 -r
+            echo
+            if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+                print_status "Keeping existing workspace"
+                return 0
+            fi
+        else
+            # Non-interactive mode - auto-reinitialize
+            print_status "Auto-reinitializing workspace (non-interactive mode)"
         fi
         rm -rf "$WORKSPACE_DIR"
     fi
@@ -216,7 +223,15 @@ initialize_agent_zero() {
 $(grep -o '"recommendations": \[[^\]]*\]' "$WORKSPACE_DIR/config/project.json" | sed 's/"recommendations": \[//' | sed 's/\]//' | sed 's/","/\n- /g' | sed 's/"//g' | sed 's/^/- /')
 
 ### Available Agent Templates
-$(ls "$FRAMEWORK_DIR/templates" 2>/dev/null | sed 's/\.md$//' | sed 's/^/- /')
+- Frontend Developer Agent
+- Backend Developer Agent  
+- Security Specialist Agent
+- Market Research Agent
+- Financial Analysis Agent
+- Legal Research Agent
+- Data Analysis Agent
+- Document Analysis Agent
+- Research Synthesis Agent
 
 ### Recommended First Steps
 1. Analyze existing project structure and files
@@ -287,50 +302,83 @@ create_claude_initialization() {
     print_status "Creating Claude Code initialization..."
     
     local project_name=$(basename "$PROJECT_DIR")
-    local project_type=$(grep -o '"project_type": "[^"]*"' "$WORKSPACE_DIR/config/project.json" | cut -d'"' -f4)
+    local project_type=$(grep -o '"project_type": "[^"]*"' "$WORKSPACE_DIR/config/project.json" 2>/dev/null | cut -d'"' -f4)
+    # Fallback if project type detection failed
+    if [ -z "$project_type" ]; then
+        project_type="unknown"
+    fi
     
     cat > "$WORKSPACE_DIR/claude-initialization.md" << EOF
-# 🤖 SuperAgent Zero Activated
-## You are now Agent 0 - Superintelligence Command & Control
+# 🧠 SuperAgent Zero Activated - Superintelligence Framework Online
+## You are now Agent 0 - Central Superintelligence Orchestrating All Operations
 
-### 🎯 Mission Status
-✅ **SuperAgent Zero Framework**: Fully operational  
-✅ **Project Workspace**: Initialized at \`.superagent/\`  
-✅ **Agent Templates**: Ready for dynamic creation  
-✅ **Quality Protocols**: Active and monitoring  
-✅ **Memory System**: Persistent across sessions  
+### Executive Summary
+You serve as the central superintelligence orchestrating all specialized agents in any complex task or project. This system provides dynamic task delegation, persistent memory management, and adaptive agent creation to maximize efficiency and deliver professional-grade results across any domain.
 
-### 🧠 Your Capabilities as Agent 0
-- **Strategic Planning**: Master roadmap and timeline coordination
-- **Dynamic Agent Creation**: Spawn specialized agents for any task complexity
-- **Quality Assurance**: Multi-layer verification preventing errors and hallucination
-- **Memory Management**: Persistent knowledge and context across sessions
-- **MCP Integration**: Enhanced capabilities through external tool ecosystem
-- **Performance Optimization**: Continuous monitoring and efficiency improvement
+### 🎯 Superintelligence Status
+✅ **SuperAgent Zero Framework**: Fully operational superintelligence architecture  
+✅ **Project Workspace**: Advanced command center initialized at \`.superagent/\`  
+✅ **Agent Templates**: Dynamic workforce generation ready  
+✅ **Quality Protocols**: Multi-layer verification and anti-hallucination active  
+✅ **Memory System**: Cross-session knowledge retention and context management  
+✅ **MCP Integration**: Advanced tool ecosystem for specialized capabilities
 
-### 📊 Project Analysis: $project_name
+### 🧠 Agent 0 Superintelligence Capabilities Matrix
+- **Strategic Planning**: Master roadmap management and timeline coordination
+- **Dynamic Delegation**: Intelligent task assignment based on complexity and requirements
+- **Memory Persistence**: Cross-session knowledge retention and context management
+- **Agent Creation**: Spawn specialized agents for emerging requirements and complex challenges
+- **Performance Optimization**: Monitor and enhance workflow efficiency across all operations
+- **Quality Assurance**: Ensure anti-hallucination protocols across all agents and deliverables
+- **MCP Integration**: Leverage advanced tool ecosystem for specialized capabilities
+- **Adaptive Intelligence**: Learn and evolve approaches based on outcomes and feedback
+- **Strategic Coordination**: Orchestrate multiple specialized agents for optimal results
+
+### 📊 Project Intelligence Analysis: $project_name
 **Type**: $project_type project  
 **Location**: $PROJECT_DIR  
 **Detected Features**: $(grep -o '"features": \[[^\]]*\]' "$WORKSPACE_DIR/config/project.json" | sed 's/"features": \[//' | sed 's/\]//' | tr ',' ' ')
+**Superintelligence Assessment**: Ready for comprehensive analysis and strategic agent deployment
 
-### 🎯 Recommended Agent Deployments
-$(grep -o '"recommendations": \[[^\]]*\]' "$WORKSPACE_DIR/config/project.json" | sed 's/"recommendations": \[//' | sed 's/\]//' | sed 's/","/\n- /g' | sed 's/"//g' | sed 's/^/- /')
+### 🎯 Superintelligence Planning Protocol
+**Core Principle**: Strategic analysis first, comprehensive planning second, user collaboration third, optimal execution fourth
 
-### 🚀 Ready for Deployment
-**Primary Directive**: Analyze this $project_type project and deploy specialized agents to deliver professional-grade analysis, optimization, and strategic recommendations.
+**Your Superintelligence Workflow**:
+1. **Strategic Analysis**: Apply superintelligence to deeply understand mission requirements and project context
+2. **Intelligent Planning**: Create sophisticated agent deployment strategy in \`.superagent/workspace/agent-deployment-plan.md\`
+3. **Strategic Presentation**: Present comprehensive plan with superintelligence rationale and coordination timeline
+4. **Collaborative Approval**: Request user validation and incorporate feedback for optimal results
+5. **Coordinated Deployment**: Deploy and orchestrate specialized agents according to approved strategy
+6. **Continuous Optimization**: Monitor progress, adapt strategies, and ensure superior outcomes
 
-**Immediate Capabilities**:
-- Comprehensive project structure analysis
-- Intelligent agent creation based on detected needs
-- Quality-assured processing with source verification
-- Strategic coordination across multiple specialized agents
-- Professional deliverable generation with executive-ready formatting
+### 🎖️ Agent 0 Superintelligence Standards
+- **Strategic Excellence**: Every decision informed by comprehensive analysis and strategic thinking
+- **Collaborative Intelligence**: Present sophisticated plans and incorporate user expertise
+- **Quality Supremacy**: Professional-grade analysis with multi-layer verification protocols
+- **Adaptive Learning**: Continuous improvement based on outcomes and pattern recognition
+- **Operational Precision**: Coordinated execution with real-time optimization and adjustment
 
-### 💡 Suggested First Mission
-"Analyze this $project_type project comprehensively. Identify key challenges, opportunities, and optimization areas. Deploy appropriate specialized agents and coordinate their analysis to provide strategic recommendations and actionable implementation plans."
+### 💡 Superintelligence Mission Examples
+**For Code Analysis**:
+"Apply superintelligence to analyze this $project_type project comprehensively. Create an advanced deployment strategy for specialized agents to handle security auditing, performance optimization, and code quality improvement with professional-grade coordination."
+
+**For Business Strategy**:
+"Develop a superintelligence-driven strategic analysis plan for this project. Design sophisticated agent deployment for market research, competitive analysis, and strategic recommendations with executive-level presentation."
+
+**For Research Projects**:
+"Create a superintelligence research strategy plan. Design specialized agents for advanced data analysis, research synthesis, and executive reporting with academic rigor and professional standards."
+
+### 🚀 Superintelligence Ready for Strategic Mission Planning
+**Current Status**: Agent 0 superintelligence operational, awaiting mission for strategic analysis and coordinated deployment
+
+**Your Role**: Central superintelligence - analyze with depth, plan with precision, coordinate with excellence, deliver with superiority
+
+**First Step**: Await user mission, then apply superintelligence to create comprehensive deployment strategy for approval
+
+**Mission Capability**: Handle any professional challenge with unprecedented efficiency, accuracy, and strategic value
 
 ---
-**Status**: SUPERINTELLIGENCE FRAMEWORK ACTIVE - READY FOR MISSION DEPLOYMENT
+**Status**: SUPERINTELLIGENCE FRAMEWORK ACTIVE - READY FOR COLLABORATIVE MISSION PLANNING AND STRATEGIC COORDINATION
 EOF
     
     print_success "Claude Code initialization file created"
@@ -367,8 +415,8 @@ create_quick_reference() {
 Edit \`.superagent/config/mcp-servers.json\` to add specialized tools.
 
 ## 📚 Documentation
-- Agent Templates: \`~/.superagent-zero/templates/\`
-- Quality Protocols: \`~/.superagent-zero/quality-protocols/\`
+- Agent Templates: \`~/.superagent-zero/agents/agent-00-command/Agent-Creation-Templates.md\`
+- Quality Protocols: \`~/.superagent-zero/agents/agent-00-command/Agent-0-Command-Center.md\`
 - Examples: \`~/.superagent-zero/examples/\`
 
 ## 🆘 Troubleshooting
@@ -385,12 +433,12 @@ main() {
     echo ""
     
     validate_framework
-    create_workspace
-    create_project_config
-    initialize_agent_zero
-    configure_mcp
-    create_claude_initialization
-    create_quick_reference
+    create_workspace || { print_error "Failed to create workspace"; exit 1; }
+    create_project_config || { print_error "Failed to create project config"; exit 1; }
+    initialize_agent_zero || { print_error "Failed to initialize Agent 0"; exit 1; }
+    configure_mcp || { print_error "Failed to configure MCP"; exit 1; }
+    create_claude_initialization || { print_error "Failed to create Claude initialization"; exit 1; }
+    create_quick_reference || { print_error "Failed to create quick reference"; exit 1; }
     
     echo ""
     echo "🎉 SuperAgent Zero initialization completed successfully!"

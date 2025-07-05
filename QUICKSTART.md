@@ -1,5 +1,5 @@
 # SuperAgent Zero Quick Start
-## Get Up and Running in 2 Minutes
+## Get Up and Running in 3 Minutes
 
 ### 🚀 Step 1: Install SuperAgent Zero (One-Time)
 ```bash
@@ -16,35 +16,49 @@ claude-code
 
 # Run the setup script
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
-
-# Claude automatically becomes Agent 0
 ```
 
-### 🎯 Step 3: Deploy Your First Mission
+### 🧠 Step 3: Activate Superintelligence
 ```bash
-# Example commands for Agent 0:
-> "As Agent 0, analyze this codebase comprehensively and deploy specialized agents as needed"
-> "Create document analysis agents to process all files in this project"  
-> "Deploy security auditing agents and coordinate their findings"
-> "Establish quality assurance protocols and begin comprehensive analysis"
+# Activate Agent 0 superintelligence capabilities
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+
+# Agent 0 is now ready for strategic mission planning
 ```
 
-## 🎓 Common First Missions
+### 🎯 Step 4: Deploy Your First Mission
+```bash
+# Agent 0 will create detailed plans for your approval before deploying agents:
 
-### For Software Projects
-```
-"As Agent 0, perform comprehensive code analysis including security vulnerabilities, performance optimization, and documentation generation. Deploy specialized agents for each area."
+> "Analyze this codebase comprehensively. Create a deployment plan for specialized agents to handle security auditing, performance optimization, and code quality improvement."
+
+> "Develop a strategic analysis plan for this project. Design agent deployment for market research, competitive analysis, and strategic recommendations."
+
+> "Create a research strategy plan. Design specialized agents for data analysis, research synthesis, and executive reporting."
 ```
 
-### For Business Analysis
+## 🎓 How Agent 0 Works: Planning → Approval → Execution
+
+### Intelligence Planning Process
+1. **Agent 0 analyzes** your mission and project requirements
+2. **Creates detailed deployment plan** with specialist recommendations
+3. **Presents strategy** with rationale and coordination timeline
+4. **Requests your approval** or modifications to the plan
+5. **Deploys agents** only after explicit permission
+6. **Coordinates execution** with progress updates
+
+### Example Mission Flow
+**Your Request:**
 ```
-"As Agent 0, analyze our business documents to identify strategic opportunities and create executive recommendations. Coordinate document analysis and research agents."
+"Analyze this React application comprehensively. Create a deployment plan for specialized agents to handle security auditing, performance optimization, and code quality improvement."
 ```
 
-### For Research Projects
-```
-"As Agent 0, help me conduct systematic analysis of these research materials with proper citation management. Deploy research and literature analysis agents."
-```
+**Agent 0 Response:**
+- Analyzes your React project structure
+- Creates deployment plan with Frontend, Security, and Performance specialists
+- Presents plan with strategic rationale and timeline
+- Requests approval: "Shall I proceed with this deployment strategy?"
+- Deploys agents only after your confirmation
 
 ## 📚 What You Get
 

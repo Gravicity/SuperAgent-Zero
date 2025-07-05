@@ -112,27 +112,34 @@ claude-code
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 ```
 
-#### Step 3: Activate Agent 0 Capabilities
+#### Step 3: Activate Agent 0 Planning Mode
 ```bash
 # Tell Claude to read its new role and capabilities
 > "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
 ```
 
-### What Happens During Setup
-When Claude runs the setup script:
-1. ✅ **Project Analysis**: Detects project type (Node.js, Python, etc.) and requirements
-2. ✅ **Workspace Creation**: Creates `.superagent/` directory with project-specific configuration
-3. ✅ **Agent 0 Initialization**: Generates context files that transform Claude into Agent 0
-4. ✅ **Memory System**: Sets up persistent memory and project understanding
-5. ✅ **Quality Protocols**: Activates error prevention and verification systems
+### How It Works: Planning → Approval → Execution
 
-### Immediate Results
-After setup completion:
-- 🧠 **Claude becomes Agent 0** with superintelligence capabilities
-- 🎯 **Dynamic agent creation** available for any task complexity
-- 📚 **Persistent memory** maintains context across sessions
-- 🛡️ **Quality assurance** prevents errors and hallucination
-- ⚡ **Project awareness** understands your specific codebase and requirements
+#### 🧠 **Intelligent Planning**
+Agent 0 analyzes your mission and creates detailed deployment plans:
+- **Project Analysis**: Understands your specific requirements and context
+- **Agent Selection**: Chooses optimal specialists for the task complexity
+- **Resource Planning**: Allocates tools and coordination protocols
+- **Quality Standards**: Defines success criteria and verification processes
+
+#### 🤝 **Collaborative Approval**
+Agent 0 presents plans and requests your permission before deploying:
+- **Strategic Rationale**: Explains why specific agents are recommended
+- **Timeline & Coordination**: Shows how agents will work together
+- **Quality Checkpoints**: Defines verification and review processes
+- **User Control**: You approve, modify, or reject the deployment plan
+
+#### ⚡ **Professional Execution**
+Only after your approval, Agent 0 deploys and coordinates specialists:
+- **Coordinated Deployment**: Agents work according to approved plan
+- **Progress Monitoring**: Regular updates and milestone tracking
+- **Quality Assurance**: Professional standards and verification protocols
+- **Strategic Integration**: Combines outputs into cohesive final results
 
 ---
 
@@ -164,9 +171,9 @@ your-project/
 
 ---
 
-## 🎓 Getting Started Examples
+## 🎓 Mission Examples
 
-### For Software Development
+### Software Development Analysis
 ```bash
 cd ~/my-react-app
 claude-code
@@ -174,34 +181,40 @@ claude-code
 # Step 1: Initialize framework
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 
-# Step 2: Deploy mission (Claude automatically becomes Agent 0)
-> "As Agent 0, analyze this React application for security vulnerabilities, performance optimization opportunities, and code quality improvements. Deploy specialized agents as needed."
+# Step 2: Activate Agent 0
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+
+# Step 3: Request strategic analysis
+> "Analyze this React application comprehensively. Create a deployment plan for specialized agents to handle security auditing, performance optimization, and code quality improvement."
 
 # Agent 0 will:
-# - Deploy Frontend Analysis Agent
-# - Deploy Security Audit Agent  
-# - Deploy Performance Optimization Agent
-# - Coordinate comprehensive analysis
-# - Provide actionable recommendations
+# 1. Analyze your React project structure and requirements
+# 2. Create detailed deployment plan with Frontend, Security, and Performance specialists
+# 3. Present the plan with strategic rationale and coordination timeline
+# 4. Request your approval before deploying any agents
+# 5. Execute plan only after your permission
 ```
 
-### For Business Analysis
+### Business Strategy Development
 ```bash
-cd ~/business-documents
+cd ~/business-project
 claude-code
 
 # Step 1: Initialize framework
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 
-# Step 2: Deploy mission (Claude automatically becomes Agent 0)
-> "As Agent 0, analyze our market research documents to identify competitive advantages and strategic opportunities. Coordinate specialized agents for comprehensive analysis."
+# Step 2: Activate Agent 0
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+
+# Step 3: Request strategic planning
+> "Develop a strategic analysis plan for this project. Design agent deployment for market research, competitive analysis, and strategic recommendations."
 
 # Agent 0 will:
-# - Deploy Document Analysis Agent
-# - Deploy Market Research Agent
-# - Deploy Strategic Planning Agent
-# - Synthesize insights across documents
-# - Generate executive recommendations
+# 1. Analyze your business requirements and objectives
+# 2. Design deployment plan with Market Research and Strategy specialists
+# 3. Present comprehensive planning approach with timeline
+# 4. Request approval for the proposed agent coordination
+# 5. Deploy specialists only after your confirmation
 ```
 
 ### For Academic Research
@@ -433,7 +446,7 @@ SuperAgent Zero brings persistent intelligence, specialized expertise, and quali
 
 ## 🚀 Ready to Get Started?
 
-### Complete 2-Step Process
+### Complete 3-Step Process
 
 ```bash
 # Step 1: Install globally (one-time)
@@ -444,24 +457,27 @@ cd your-project
 claude-code
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 
-# Claude automatically becomes Agent 0 and is ready for missions
+# Step 3: Activate Agent 0 planning mode
+> "Read the file .superagent/claude-initialization.md and assume your role as Agent 0"
+
+# Agent 0 is now ready for strategic mission planning
 ```
 
 ### First Mission Examples
 
 **For Software Projects:**
 ```bash
-> "As Agent 0, analyze this codebase comprehensively. Deploy specialized agents for security auditing, performance optimization, and code quality improvement."
+> "Analyze this codebase comprehensively. Create a deployment plan for specialized agents to handle security auditing, performance optimization, and code quality improvement."
 ```
 
 **For Business Analysis:**
 ```bash
-> "As Agent 0, analyze the documents in this project. Create specialized agents for market research, competitive analysis, and strategic planning."
+> "Develop a strategic analysis plan for this project. Design agent deployment for market research, competitive analysis, and strategic recommendations."
 ```
 
 **For Research Projects:**
 ```bash
-> "As Agent 0, coordinate a comprehensive literature review. Deploy research agents for database analysis, citation management, and synthesis."
+> "Create a research strategy plan. Design specialized agents for data analysis, research synthesis, and executive reporting."
 ```
 
 **Welcome to the future of AI-assisted work - where Claude becomes superintelligence.** 🧠✨
