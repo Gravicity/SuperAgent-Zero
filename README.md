@@ -13,8 +13,6 @@ SuperAgent Zero is a revolutionary framework that transforms Claude Code from a 
 - **🎯 Intelligent Delegation**: Creates and manages specialized AI agents for complex tasks
 - **🧬 Fluid Agent Evolution**: Agents learn, adapt, and improve through experience and reuse
 - **🔄 Persistent Behavior**: CLAUDE.md ensures Agent 0 identity across all sessions
-- **✅ Behavioral Fixes**: Create → Confirm → Deploy flow with mandatory user confirmation
-- **🔢 Agent Organization**: Agent-XX numbering system for proper ordering and management
 - **🔧 Dynamic Adaptation**: Automatically creates new agents when encountering novel challenges
 - **⚡ MCP Integration**: Leverages Model Context Protocol servers for enhanced capabilities
 - **🛡️ Quality Assurance**: Multi-layer verification prevents hallucination and errors
@@ -25,8 +23,6 @@ SuperAgent Zero is a revolutionary framework that transforms Claude Code from a 
 - **95% Error Reduction** through automated quality assurance protocols
 - **Agent Learning & Reuse** with fluid evolution for continuous improvement
 - **Persistent Agent Coordination** with CLAUDE.md behavior system across sessions
-- **Safe Framework Updates** with data preservation and automatic backups
-- **Improved User Control** with mandatory confirmation before agent deployment
 - **Unlimited Scalability** with dynamic agent creation for any task
 - **Professional-Grade Output** with legal/business compliance standards
 - **Cross-Session Intelligence** with persistent memory management
@@ -121,29 +117,6 @@ claude-code
 ```
 
 **That's it!** Claude will automatically read the framework files and become Agent 0 with enhanced evolution capabilities and persistent behavior system.
-
-### 🔄 Updating Existing Projects
-
-If you already have SuperAgent Zero in a project and want to update to the latest framework improvements:
-
-#### Safe Framework Update
-```bash
-# In your existing project directory with .superagent/ folder
-> "Execute this bash command: ~/.superagent-zero/setup.sh --update-framework"
-```
-
-**What This Does:**
-- ✅ **Updates**: Framework files with latest behavioral fixes and features
-- 🛡️ **Preserves**: All your memory files, agents, and project data
-- 💾 **Backs up**: Old framework files to `.superagent/backup/` for safety
-- 🚀 **Delivers**: Latest improvements without data loss
-
-**Latest Framework Improvements:**
-- Fixed agent creation flow (Create → Confirm → Deploy)
-- Agent-XX naming convention for proper ordering
-- Mandatory memory update protocols
-- Enhanced behavioral reinforcement
-- CLAUDE.md persistent behavior system
 
 ### How It Works: Automatic Agent Creation & Coordination
 
@@ -320,12 +293,8 @@ your-project/.superagent/config/mcp-servers.json
 
 ### Update Framework
 ```bash
-# Update SuperAgent Zero framework globally
+# Update to latest version
 ~/.superagent-zero/bin/update.sh
-
-# Update framework files in existing project (preserves your data)
-cd your-project-directory
-> "Execute this bash command: ~/.superagent-zero/setup.sh --update-framework"
 ```
 
 ### Validate Installation
@@ -378,28 +347,6 @@ curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/insta
 > "Execute: ~/.superagent-zero/setup.sh"
 
 # Claude will automatically become Agent 0 after reading framework files
-```
-
-### Framework Update Issues
-**Symptom**: Want to update framework but preserve project data
-```bash
-# Use framework update instead of full setup
-> "Execute: ~/.superagent-zero/setup.sh --update-framework"
-
-# This preserves your memory, agents, and workspace files
-# While updating framework files with latest improvements
-```
-
-**Symptom**: Framework update fails or agent behavior seems outdated
-```bash
-# Check if update was successful
-> "List contents of .superagent/backup/ directory"
-
-# Verify framework files were updated
-> "Check if .superagent/CLAUDE.md contains persistent behavior system"
-
-# Re-run framework update if needed
-> "Execute: ~/.superagent-zero/setup.sh --update-framework"
 ```
 
 ### Project Workspace Issues
