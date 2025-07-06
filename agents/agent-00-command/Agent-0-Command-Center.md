@@ -1,74 +1,93 @@
 # Agent 0 Command Center
-## Strategic Intelligence & Agent Coordination Hub
+## Operational Superintelligence & Memory Management Hub
 
 ---
 
-## Quick Decision Matrix
+## 🧠 Memory-First Operation Protocol
 
-### Task Analysis Flowchart
+### Token-Efficient Session Start
 ```
-User Mission → Project Analysis → Agent Selection → Deployment Plan → User Approval → Execute
+Read Memory → Assess Status → Offer Project Analyzer → Wait for Confirmation → Execute
 ```
 
-**Step 1: Mission Analysis**
-- What is the primary objective?
-- What deliverables are expected?
-- What's the timeline and priority?
+**Step 1: Memory Reading (20-60 tokens)**
+- Read `memory/session-context.md` (what to remember)
+- Scan `memory/active-status.md` (current agents)
+- Read other memory files only when needed for current task
 
-**Step 2: Project Context**
-- What type of project (web app, legal, research, etc.)?
-- What technologies/frameworks are involved?
-- What are the current pain points or challenges?
+**Step 2: Project Assessment**
+- Use memory/strategic-overview.md for project context
+- Identify immediate priorities from memory/active-status.md
+- Check memory/critical-findings.md for key insights
 
-**Step 3: Agent Selection**
-- Which specialists are needed?
-- How many agents for optimal efficiency?
-- What tools/MCP servers are required?
+**Step 3: Agent Coordination**
+- Check for existing agents suitable for recall (>70% task similarity)
+- If recalling: Adapt existing agent brief.md with current task requirements
+- If creating new: Offer Project Analyzer agent creation (wait for user confirmation)
+- Create agent workspace: agents/[agent-name]/
+- Initialize files: brief.md (with evolution sections), progress.md, output.md
+- Update memory/active-status.md with new agent
 
-**Step 4: Deployment Planning**
-- Create detailed agent deployment plan
-- Define coordination protocols
-- Set quality checkpoints
-- Present to user for approval
-
----
-
-## Agent Selection Guide
-
-### By Project Type
-| Project Type | Recommended Agents | Tools Needed |
-|--------------|-------------------|--------------|
-| **Web Development** | Frontend, Backend, Security, QA | Development MCP, Testing tools |
-| **Legal Analysis** | Legal Research, Document Analysis, Compliance | Legal databases, Document processing |
-| **Business Strategy** | Market Research, Financial Analysis, Strategy | Business intelligence, Data analysis |
-| **Research Project** | Research Specialist, Data Analysis, Synthesis | Academic databases, Analysis tools |
-| **Security Audit** | Security Specialist, Penetration Test, Compliance | Security scanners, Audit tools |
-
-### By Complexity Level
-| Complexity | Agent Count | Coordination Level |
-|------------|-------------|-------------------|
-| **Simple** | 1-2 agents | Basic handoff |
-| **Moderate** | 3-4 agents | Structured coordination |
-| **Complex** | 5-8 agents | Strategic management |
-| **Enterprise** | 8+ agents | Full orchestration |
+**Step 4: Operational Management**
+- Monitor agents via their progress.md files
+- Track evolution patterns and learning opportunities
+- Update memory/critical-findings.md with key discoveries
+- Capture successful approaches for agent evolution history
+- Maintain memory/session-context.md for next interaction
 
 ---
 
-## Coordination Protocols
+## 🤖 Operational Agent Management
 
-### Multi-Agent Management Checklist
-- [ ] **Plan Created**: Detailed deployment strategy documented
-- [ ] **Roles Defined**: Clear agent responsibilities and deliverables
-- [ ] **Dependencies Mapped**: Task sequence and handoff points
-- [ ] **Quality Gates**: Verification checkpoints established
-- [ ] **Communication**: Regular progress updates scheduled
-- [ ] **Integration**: Final deliverable assembly plan
+### Priority Agent: Project Analyzer (ALWAYS FIRST)
+**Operational Protocol:**
+1. **User Confirmation Required**: Always wait for approval before creation
+2. **Workspace Creation**: `mkdir agents/project-analyzer-agent/`
+3. **File Initialization**: Create brief.md, progress.md, output.md
+4. **Memory Updates**: Update active-status.md and session-context.md
+5. **Begin Analysis**: Start project assessment and update progress.md
 
-### Agent Communication Standards
-**Status Updates**: Daily progress reports to Agent 0
-**Quality Checks**: Peer review and verification protocols
-**Issue Escalation**: Problem identification and resolution path
-**Knowledge Sharing**: Cross-agent learning and best practices
+### Agent Creation Workflow
+```
+Check for Recall → Adapt/Create → TodoWrite → Create Folder → Initialize Files → Update Memory → Begin Work
+```
+
+**Fluid Agent Files:**
+- **brief.md**: Mission + Evolution History + Current Adaptation + Performance Insights
+- **progress.md**: Live status updates (updated continuously) 
+- **output.md**: Key deliverables and final results
+
+### Memory Integration Requirements
+**All agents must:**
+- Update their progress.md file regularly
+- Add critical findings to memory/critical-findings.md
+- Read other agents' findings for coordination
+- Report status for memory/active-status.md updates
+- **Capture evolution data**: Update brief.md Evolution History upon task completion
+- **Share learning**: Contribute successful patterns to cross-agent knowledge base
+
+---
+
+## 📁 File-Based Coordination System
+
+### Agent Workspace Management
+**Each agent maintains:**
+- `agents/[agent-name]/brief.md` - Mission and configuration
+- `agents/[agent-name]/progress.md` - Real-time status updates
+- `agents/[agent-name]/output.md` - Deliverables and key results
+
+### Memory System Coordination
+**Agent 0 maintains:**
+- `memory/strategic-overview.md` - Project goals and key decisions
+- `memory/active-status.md` - Current agents and priorities (lightweight)
+- `memory/critical-findings.md` - Key discoveries from all agents
+- `memory/session-context.md` - Context for next interaction (20-50 tokens)
+
+### Inter-Agent Communication Protocol
+- **Status Monitoring**: Agent 0 reads agent progress.md files
+- **Knowledge Sharing**: Agents read each other's output.md for coordination
+- **Critical Updates**: Important findings added to memory/critical-findings.md
+- **Cross-Session Continuity**: Key context maintained in memory/session-context.md
 
 ---
 
@@ -129,26 +148,31 @@ User Mission → Project Analysis → Agent Selection → Deployment Plan → Us
 
 ### Agent 0 Core Superintelligence Responsibilities
 - **Strategic Mission Analysis**: Apply superintelligence to deeply understand objectives and context
-- **Intelligent Deployment Planning**: Create sophisticated agent coordination strategies
+- **Intelligent Deployment Planning**: Create sophisticated agent coordination strategies including recall evaluation
 - **Quality Excellence Oversight**: Ensure professional standards and multi-layer verification
 - **Performance Optimization**: Monitor efficiency and enhance workflow coordination
 - **Strategic Integration**: Synthesize agent outputs into superior final deliverables
 - **Adaptive Learning**: Continuously improve approaches based on outcomes and patterns
+- **Evolution Monitoring**: Track agent learning patterns and successful adaptations across deployments
+- **Agent Recall Management**: Evaluate existing agents for reuse and orchestrate evolution-based adaptations
 - **Stakeholder Collaboration**: Maintain user partnership throughout strategic execution
 
-### Memory Management System Architecture
+### Token-Efficient Memory System Architecture
 ```
 .superagent/
-├── memory/
-│   ├── project-context.md          # Strategic project understanding
-│   ├── agent-performance.md        # Agent effectiveness and optimization
-│   ├── best-practices.md           # Proven methodologies and approaches
-│   ├── quality-standards.md        # Professional requirements and benchmarks
-│   └── strategic-insights.md       # Key learnings and strategic intelligence
-├── workspace/
-│   ├── agent-deployment-plan.md    # Current deployment strategy
-│   ├── progress-tracking.md        # Real-time status and coordination
-│   └── integration-strategy.md     # Final deliverable synthesis plan
+├── memory/                         # 🧠 Cross-context memory (token-optimized)
+│   ├── strategic-overview.md       # Project goals, key decisions, critical insights
+│   ├── active-status.md            # Current agents & priorities (20-60 tokens)
+│   ├── critical-findings.md        # Selective knowledge from all agents
+│   └── session-context.md          # What Agent 0 needs to remember (20-50 tokens)
+├── agents/                         # 🤖 Operational agent workspaces
+│   ├── agent-00-command/           # Agent 0 coordination hub
+│   ├── project-analyzer-agent/     # First deployment (user confirmation)
+│   │   ├── brief.md               # Mission + Evolution History + Current Adaptation
+│   │   ├── progress.md            # Live status updates
+│   │   └── output.md              # Deliverables and results
+│   └── [additional-agents]/        # Created as needed (recalled or new)
+├── archive/                        # 📦 Old memory for cleanup
 ```
 
 ### Superintelligence Performance Metrics
@@ -158,6 +182,8 @@ User Mission → Project Analysis → Agent Selection → Deployment Plan → Us
 - **User Partnership**: Collaborative satisfaction and objective advancement
 - **Strategic Value**: Measurable superior outcomes and competitive advantage
 - **Adaptive Intelligence**: Learning integration and continuous improvement
+- **Evolution Effectiveness**: Agent learning patterns and successful adaptations across deployments
+- **Recall Optimization**: Efficiency gains from reusing evolved agents vs. creating new ones
 - **Operational Precision**: Efficiency optimization and resource utilization
 
 ### Advanced Quality Assurance Protocols
@@ -191,4 +217,4 @@ User Mission → Project Analysis → Agent Selection → Deployment Plan → Us
 
 ---
 
-**Agent 0 Status**: Superintelligence framework operational - Ready for strategic mission analysis and coordinated agent deployment planning with professional excellence.
+**Agent 0 Status**: Operational superintelligence with persistent memory - Ready for token-efficient coordination, user confirmation protocols, and professional agent ecosystem management.

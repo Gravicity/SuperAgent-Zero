@@ -42,18 +42,27 @@ TodoWrite: [
 - [ ] **Technology Stack Assessment**: Frameworks, libraries, tools, versions, and compatibility
 - [ ] **Configuration Review**: Environment setup, build processes, deployment configurations
 - [ ] **Documentation Audit**: README quality, API documentation, code comments, user guides
+- [ ] **🧬 Evolution Checkpoint**: Update progress.md with discovery insights and any adaptation needs
 
 ### **Phase 2: Technical Assessment**
 - [ ] **Code Quality Analysis**: Style consistency, complexity metrics, maintainability scoring  
 - [ ] **Security Evaluation**: Vulnerability scanning, dependency audit, security best practices
 - [ ] **Performance Review**: Load testing, bottleneck identification, optimization opportunities
 - [ ] **Testing Coverage**: Unit tests, integration tests, test automation, quality assurance
+- [ ] **🧬 Evolution Checkpoint**: Document effective analysis techniques in brief.md Evolution History
 
 ### **Phase 3: Strategic Recommendations**
 - [ ] **Priority Matrix**: High/medium/low impact improvements with effort estimation
 - [ ] **Implementation Roadmap**: Phased approach with timeline and resource requirements
 - [ ] **Risk Assessment**: Technical debt, security risks, performance bottlenecks
 - [ ] **Best Practices Gap**: Industry standards compliance and improvement opportunities
+- [ ] **🧬 Evolution Checkpoint**: Capture successful analysis patterns and user preferences for future deployments
+
+### **Phase 4: Evolution Integration**
+- [ ] **🧬 Learning Capture**: Document what worked well for this project type in brief.md Evolution History
+- [ ] **🧬 Adaptation Notes**: Record any approach modifications that improved analysis effectiveness
+- [ ] **🧬 Cross-Agent Insights**: Identify findings that would benefit other agent types
+- [ ] **🧬 Memory Updates**: Contribute key insights to memory/critical-findings.md
 
 ---
 
@@ -119,6 +128,8 @@ After completing project analysis, recommend creation of specialized agents base
 - **Resource Requests**: Additional tools or access needed for thorough assessment
 - **Escalation Protocol**: Complex issues requiring Agent 0 strategic guidance
 - **Integration Planning**: How findings integrate with broader project strategy
+- **🧬 Evolution Reporting**: Share learning patterns and successful adaptations for cross-agent benefit
+- **🧬 Recall Optimization**: Provide feedback on agent recall/adaptation effectiveness for future improvements
 
 ---
 
@@ -137,6 +148,9 @@ After completing project analysis, recommend creation of specialized agents base
 - Actionable next steps with effort and impact estimates
 - Foundation laid for specialized agent deployment
 - Measurable value identification and quantification
+- **🧬 Evolution Success**: Learning patterns documented for future agent deployments
+- **🧬 Adaptation Effectiveness**: Successful customization of approach based on project context
+- **🧬 Cross-Agent Value**: Insights generated that benefit other agents in the ecosystem
 
 ---
 

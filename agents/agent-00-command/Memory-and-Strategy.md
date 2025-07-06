@@ -1,55 +1,56 @@
 # Memory & Strategy Core
-## Intelligence Persistence & Strategic Learning
+## Token-Efficient Intelligence Persistence & Cross-Context Strategy
 
 ---
 
-## Strategic Memory System
+## 🧠 Token-Optimized Memory Architecture
 
-### Project Knowledge Base
-**Purpose**: Accumulate and maintain strategic understanding across sessions
-**Content**: Key insights, patterns, successful approaches, lessons learned
-**Usage**: Inform decision-making and improve future mission planning
+### Primary Memory Files (Read These First)
+- **session-context.md** (20-50 tokens): What Agent 0 needs to remember from last session
+- **active-status.md** (20-60 tokens): Current agents and immediate priorities
+- **critical-findings.md**: Selective key discoveries from all agents (read when needed)
+- **strategic-overview.md**: Project goals and key decisions (read when needed)
 
-### Agent Performance History
-**Purpose**: Track what works best for different agent types and missions
-**Content**: Success rates, optimization strategies, best practices
-**Usage**: Optimize agent selection and configuration for similar tasks
+### Memory Reading Protocol
+**Session Start:**
+1. Read `memory/session-context.md` (essential context)
+2. Scan `memory/active-status.md` (current situation) 
+3. Read other memory files only when relevant to current task
 
-### Best Practice Database
-**Purpose**: Capture and codify successful methodologies
-**Content**: Proven approaches, quality standards, efficiency techniques
-**Usage**: Standardize excellence across all agent deployments
+**During Work:**
+- Update active-status.md when agents created/completed
+- Add critical findings selectively (not everything)
+- Maintain session-context.md for next interaction
 
 ---
 
-## Active Agent Registry
+## 📁 Operational Agent Management
 
-### Current Agent Status Template
-```markdown
-## Agent Registry - [Project Name]
-### Last Updated: [Timestamp]
-
-**Agent-01: [Type] - [Task]**
-- Status: [Active/Completed/Pending]
-- Progress: [Percentage] complete
-- Next Milestone: [Date/Objective]
-- Quality Score: [Rating]
-- Notes: [Key insights or issues]
-
-**Agent-02: [Type] - [Task]**
-- Status: [Active/Completed/Pending]
-- Progress: [Percentage] complete
-- Next Milestone: [Date/Objective]
-- Quality Score: [Rating]
-- Notes: [Key insights or issues]
+### Agent Workspace Structure
+```
+agents/[agent-name]/
+├── brief.md          # Mission, scope, success criteria (created once)
+├── progress.md       # Live status updates (updated continuously)
+└── output.md         # Key deliverables and final results
 ```
 
-### Agent Coordination Matrix
-| Agent | Task | Dependencies | Status | ETA |
-|-------|------|-------------|--------|-----|
-| Agent-01 | Task A | None | In Progress | 2 days |
-| Agent-02 | Task B | Agent-01 output | Waiting | 3 days |
-| Agent-03 | Task C | Independent | Planning | 1 day |
+### Agent Status Monitoring
+**Agent 0 monitors via:**
+- Reading agent `progress.md` files for current status
+- Checking `memory/active-status.md` for overview
+- Reading agent `output.md` files for coordination
+
+### Agent Creation Protocol
+```
+1. Evaluate existing agents for recall (>70% task similarity)
+2. If recalling: Adapt existing agent's brief.md for current task
+3. If new: TodoWrite for task tracking
+4. Create physical folder: agents/[agent-name]/
+5. Initialize files: brief.md (with evolution sections), progress.md, output.md
+6. Update memory/active-status.md with agent status
+7. Begin agent work with evolution tracking and file maintenance
+8. Upon completion: Capture learning patterns in brief.md Evolution History
+```
 
 ---
 
@@ -72,16 +73,19 @@
 **Risk Factors**: [Potential challenges or obstacles]
 
 ### Agent Deployment Strategy
-**Recommended Agents**: [Types and specializations needed]
+**Existing Agent Evaluation**: [Check for agents with >70% task similarity for recall]
+**Recommended Agents**: [Types and specializations needed - new or adapted]
 **Coordination Level**: [Independent/Structured/Strategic/Full]
 **Timeline**: [Phases and milestones]
 **Quality Gates**: [Verification checkpoints]
+**Evolution Tracking**: [Learning patterns to capture during execution]
 
 ### Success Metrics
 **Completion Criteria**: [How we know it's done]
 **Quality Standards**: [Professional requirements]
 **User Value**: [Measurable benefit to user]
-**Learning Opportunities**: [What we can improve next time]
+**Evolution Capture**: [Specific learning patterns and adaptations to document]
+**Cross-Agent Learning**: [Successful approaches to share with other agents]
 ```
 
 ---
@@ -165,17 +169,19 @@
 
 ## Knowledge Management
 
-### Critical Intelligence Registry
+### Critical Intelligence Registry (memory/critical-findings.md)
 **Purpose**: Track most important findings and strategic insights
-**Content**: Key discoveries, patterns, strategic implications
+**Content**: Key discoveries, patterns, strategic implications from all agents
 **Usage**: Inform high-level decision-making and strategic planning
+**Evolution Integration**: Includes successful agent adaptation patterns and learning insights
 
-### Cross-Project Learning
+### Cross-Project Learning (memory/strategic-overview.md)
 **Purpose**: Apply insights across different missions and domains
-**Content**: Transferable strategies, universal best practices
-**Usage**: Accelerate success in new projects and domains
+**Content**: Transferable strategies, universal best practices, agent evolution patterns
+**Usage**: Accelerate success in new projects and domains, inform agent recall decisions
+**Evolution Integration**: Documents which agent types excel in which contexts
 
-### Institutional Memory
+### Institutional Memory (memory/session-context.md)
 **Purpose**: Preserve knowledge and expertise across sessions
 **Content**: Lessons learned, optimization strategies, quality standards
 **Usage**: Maintain excellence and continuous improvement
@@ -207,18 +213,26 @@
 ## Continuous Improvement
 
 ### Learning Cycles
-1. **Execute**: Deploy agents and monitor performance
+1. **Execute**: Deploy agents (new or recalled) and monitor performance
 2. **Analyze**: Review outcomes and identify patterns
 3. **Learn**: Extract insights and best practices
-4. **Improve**: Integrate learning into future planning
-5. **Optimize**: Refine approaches and enhance effectiveness
+4. **Evolve**: Update agent brief.md Evolution History with successful patterns
+5. **Improve**: Integrate learning into future planning and agent recall decisions
+6. **Optimize**: Refine approaches and enhance effectiveness across agent ecosystem
+
+### Evolution Integration
+- **Agent Pattern Capture**: Document successful approaches in brief.md Evolution History
+- **Cross-Agent Learning**: Share effective methods between agent types
+- **Adaptation Tracking**: Monitor how agents evolve for different contexts
+- **Recall Optimization**: Improve agent selection and adaptation processes
+- **Performance Correlation**: Link evolution patterns to outcome improvements
 
 ### Innovation Integration
-- **New Tool Adoption**: Integrate emerging capabilities
-- **Process Innovation**: Develop creative approaches
-- **Quality Enhancement**: Advance standards and practices
-- **Strategic Evolution**: Adapt to changing requirements
+- **New Tool Adoption**: Integrate emerging capabilities into evolving agents
+- **Process Innovation**: Develop creative approaches and capture in evolution history
+- **Quality Enhancement**: Advance standards and practices through agent learning
+- **Strategic Evolution**: Adapt to changing requirements via agent ecosystem evolution
 
 ---
 
-**Memory & Strategy Status**: Intelligence core operational, ready for strategic planning and continuous learning integration.
+**Memory & Strategy Status**: Token-efficient memory system operational with fluid agent evolution architecture - Ready for cross-context intelligence persistence, agent recall optimization, and continuous learning coordination.

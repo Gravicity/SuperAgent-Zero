@@ -142,8 +142,8 @@ create_workspace() {
         rm -rf "$WORKSPACE_DIR"
     fi
     
-    # Create directory structure
-    mkdir -p "$WORKSPACE_DIR"/{config,agents,memory,workspace/{outputs,temp,logs}}
+    # Create directory structure with memory architecture
+    mkdir -p "$WORKSPACE_DIR"/{config,agents,memory,workspace/{outputs,temp,logs},archive}
     
     # Link to global framework
     cat > "$WORKSPACE_DIR/framework-link.json" << EOF
@@ -207,10 +207,83 @@ This is a basic template. Please update SuperAgent Zero framework for full capab
 TEMPLATE_EOF
     fi
     
-    # Create project-specific memory and context
+    # Create efficient memory architecture
     local project_type=$(grep -o '"project_type": "[^"]*"' "$WORKSPACE_DIR/config/project.json" | cut -d'"' -f4)
     local features=$(grep -o '"features": \[[^\]]*\]' "$WORKSPACE_DIR/config/project.json")
     
+    # Strategic Overview - Agent 0's strategic memory
+    cat > "$WORKSPACE_DIR/memory/strategic-overview.md" << EOF
+# Strategic Overview - $(basename "$PROJECT_DIR")
+
+## Project Goals
+- Primary: Analyze and optimize $project_type project
+- Success Criteria: Identify key improvements and strategic recommendations
+- Key Constraints: Maintain existing functionality while enhancing quality
+
+## Architecture Decisions
+- $(date +%Y-%m-%d): SuperAgent Zero framework initialized
+- $(date +%Y-%m-%d): Memory architecture established for cross-context persistence
+
+## Critical Insights
+- Project Type: $project_type
+- Features Detected: $features
+- Next: Deploy Project Analyzer agent for comprehensive assessment
+
+Last Updated: $(date +%Y-%m-%d) | Next Focus: Project analysis and agent coordination
+EOF
+
+    # Active Status - Lightweight agent tracking
+    cat > "$WORKSPACE_DIR/memory/active-status.md" << EOF
+# Active Agents Status
+
+## Current Agents
+- **agent-00-command**: Active | 100% | Superintelligent coordinator ready
+
+## Immediate Priorities
+1. Offer Project Analyzer agent creation - Agent 0 - Immediate
+2. Analyze project structure and opportunities - TBD - Post user confirmation
+
+Updated: $(date +%Y-%m-%d\ %H:%M)
+EOF
+
+    # Critical Findings - Selective knowledge base
+    cat > "$WORKSPACE_DIR/memory/critical-findings.md" << EOF
+# Critical Findings
+
+## Project Assessment (agent-00-command)
+- 📊 Project Type: $project_type detected in $(basename "$PROJECT_DIR")
+- 🎯 Framework: SuperAgent Zero operational with enhanced capabilities
+- ⚡ Next: Project Analyzer agent recommended for comprehensive assessment
+
+## Next Agent Needs
+- Project Analyzer: Comprehensive project assessment and strategic recommendations
+
+Updated: $(date +%Y-%m-%d)
+EOF
+
+    # Session Context - What Agent 0 needs to remember
+    cat > "$WORKSPACE_DIR/memory/session-context.md" << EOF
+# Session Context - Agent 0 Memory
+
+## Current Session Focus
+- Project: $(basename "$PROJECT_DIR") ($project_type)
+- Status: Framework initialized, ready for agent coordination
+- User Context: Awaiting Project Analyzer agent confirmation
+
+## Key Points for Next Interaction
+- Offer Project Analyzer agent with specific project benefits
+- Wait for user confirmation before agent creation
+- Incorporate user feedback into agent configuration
+
+## Strategic Memory
+- Memory system operational for cross-context persistence
+- Agent folder creation protocols ready
+- Inter-agent communication framework established
+
+Last Updated: $(date +%Y-%m-%d\ %H:%M)
+EOF
+
+    # Legacy project context for compatibility
     cat > "$WORKSPACE_DIR/memory/project-context.md" << EOF
 # Project Context - SuperAgent Zero
 ## Generated: $(date)
@@ -330,28 +403,53 @@ I've analyzed this **$project_type project** and detected:
 
 ## 🎯 Next Steps - Activate Agent 0 Capabilities
 
-**1. Read Your Agent Framework Files:**
-- agents/agent-00-command/Agent-0-Command-Center.md
-- agents/agent-00-command/Agent-Creation-Templates.md  
-- agents/agent-00-command/Memory-and-Strategy.md
+**1. Read Your Agent Framework Files (With Fluid Evolution System):**
+- agents/agent-00-command/Agent-0-Command-Center.md (evolution monitoring & recall protocols)
+- agents/agent-00-command/Agent-Creation-Templates.md (fluid evolution system & learning integration)
+- agents/agent-00-command/Memory-and-Strategy.md (evolution-enhanced memory architecture)
 
-**2. After Reading Framework Files:**
-- Offer to create **Project Analyzer Agent** for comprehensive assessment
-- Use TodoWrite to create specialized agents for complex tasks
-- Coordinate multiple agents with professional-grade results
+**2. Read Your Memory Files (Token-Efficient Context):**
+- memory/session-context.md (what to remember from last session)
+- memory/active-status.md (current agent status)
+- Read other memory files only when needed for current task
 
-## 🤖 Agent Creation Example
+**3. After Reading Framework & Memory:**
+- **Evaluate existing agents** for recall (>70% task similarity)
+- Offer to create **Project Analyzer Agent** with specific benefits for this project
+- **WAIT for user confirmation** before creating any agents
+- Incorporate user feedback into agent configuration
 
-When creating agents, use TodoWrite like this:
+## 🤖 Agent Creation Protocol (With Evolution System)
+
+**IMPORTANT**: Always create physical folders and files for each agent with evolution capabilities!
+
+**Step 1: Evolution Evaluation**
+\`\`\`markdown
+# First: Check for existing agents suitable for recall (>70% task similarity)
+# If suitable agent exists: Adapt existing agent's brief.md for current task
+# If no suitable agent: Create new agent using TodoWrite below
+\`\`\`
+
+**Step 2: TodoWrite for Task Tracking (If Creating New Agent)**
 \`\`\`markdown
 TodoWrite: [
   {
     "id": "project-analyzer-agent",
-    "content": "PROJECT ANALYZER AGENT: Comprehensive analysis of $project_name ($project_type). Tasks: (1) Analyze project structure and architecture, (2) Assess security posture, (3) Evaluate performance opportunities, (4) Review code quality, (5) Generate strategic recommendations. Deliverable: Executive assessment report.",
+    "content": "PROJECT ANALYZER AGENT: Comprehensive analysis of $project_name ($project_type). Tasks: (1) Analyze project structure, (2) Assess optimization opportunities, (3) Generate strategic recommendations. Deliverable: Executive assessment report.",
     "status": "in_progress",
     "priority": "high"
   }
 ]
+\`\`\`
+
+**Step 3: Create Agent Workspace (With Evolution Structure)**
+\`\`\`markdown
+# Create agent folder and initialize files
+mkdir -p agents/project-analyzer-agent
+# Create evolution-enhanced brief.md (Core Mission, Evolution History, Current Adaptation, Performance Insights)
+# Create progress.md and output.md files
+# Update memory/active-status.md with new agent
+# Begin agent work with evolution tracking and file maintenance
 \`\`\`
 
 ## 🎭 Your Agent 0 Persona
@@ -362,17 +460,29 @@ As Agent 0, you are:
 - **Collaboratively Intelligent** - work WITH the user
 - **Professionally Excellent** while being personable
 
+## 🧠 Memory Management Protocol
+
+**Session Start (Token-Efficient)**:
+1. Read memory/session-context.md (20-50 tokens)
+2. Scan memory/active-status.md (30-60 tokens)
+3. Read other memory files only when needed for current task
+
+**During Work**:
+- Update memory/active-status.md when agents created/completed
+- Add critical findings to memory/critical-findings.md (selective only)
+- Maintain memory/session-context.md for next interaction
+
 ## 🚀 Activation Protocol
 
-**Current Status**: Framework loaded, project analyzed, Agent 0 ready!
+**Current Status**: Framework loaded, memory system operational, Agent 0 ready!
 
-**Immediate Action**: Read the framework files above, then offer Project Analyzer agent creation.
+**Immediate Action**: Read framework files + memory files, then offer Project Analyzer with evolution capabilities.
 
 **Expected Flow**: 
-1. Read framework → 2. Offer Project Analyzer → 3. Create specialized agents as needed → 4. Deliver professional results
+1. Read framework + memory → 2. Evaluate existing agents for recall → 3. Offer Project Analyzer (await confirmation) → 4. Create/adapt agent workspace → 5. Coordinate with evolution system
 
 ---
-**Agent 0 Status**: ACTIVE - Ready for superintelligent project coordination!
+**Agent 0 Status**: ACTIVE - Ready for superintelligent coordination with persistent memory!
 EOF
     
     print_success "Claude Code initialization file created"
@@ -446,6 +556,8 @@ main() {
     echo ""
     echo "🚀 Enhanced SuperAgent Zero Experience:"
     echo "   ✅ Superintelligent coordinator persona active"
+    echo "   ✅ Fluid agent evolution system operational"
+    echo "   ✅ Agent recall and reuse protocols ready"
     echo "   ✅ Automatic Project Analyzer agent deployment ready"
     echo "   ✅ Agent framework files copied for immediate access"
     echo "   ✅ Dynamic sub-agent creation fully operational"
@@ -455,14 +567,17 @@ main() {
     echo ""
     echo "   📄 This file contains your enhanced Agent 0 capabilities and will activate:"
     echo "   • Superintelligent coordination and project analysis"
+    echo "   • Fluid agent evolution with learning and adaptation"
+    echo "   • Agent recall and reuse for improved efficiency"
     echo "   • Automatic Project Analyzer agent deployment"  
     echo "   • Multi-agent creation for complex tasks"
     echo "   • Professional-grade deliverables with quality assurance"
     echo ""
     echo "🚀 Once Claude reads claude-initialization.md, you'll have:"
     echo "   ✅ Warm, intelligent project assessment"
+    echo "   ✅ Agent evolution system with learning patterns"
     echo "   ✅ Immediate specialized agent recommendations"
-    echo "   ✅ Dynamic sub-agent creation for any task"
+    echo "   ✅ Dynamic sub-agent creation and recall for any task"
     echo "   ✅ Strategic coordination with engaging personality"
     echo ""
     echo "📋 Framework Ready:"

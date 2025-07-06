@@ -11,6 +11,7 @@ SuperAgent Zero is a revolutionary framework that transforms Claude Code from a 
 
 - **🧠 Persistent Memory**: Retains knowledge across sessions with strategic intelligence
 - **🎯 Intelligent Delegation**: Creates and manages specialized AI agents for complex tasks
+- **🧬 Fluid Agent Evolution**: Agents learn, adapt, and improve through experience and reuse
 - **🔧 Dynamic Adaptation**: Automatically creates new agents when encountering novel challenges
 - **⚡ MCP Integration**: Leverages Model Context Protocol servers for enhanced capabilities
 - **🛡️ Quality Assurance**: Multi-layer verification prevents hallucination and errors
@@ -19,6 +20,7 @@ SuperAgent Zero is a revolutionary framework that transforms Claude Code from a 
 ### Key Benefits
 - **300% Efficiency Improvement** through parallel processing and specialization
 - **95% Error Reduction** through automated quality assurance protocols
+- **Agent Learning & Reuse** with fluid evolution for continuous improvement
 - **Unlimited Scalability** with dynamic agent creation for any task
 - **Professional-Grade Output** with legal/business compliance standards
 - **Cross-Session Intelligence** with persistent memory management
@@ -112,7 +114,7 @@ claude-code
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 ```
 
-**That's it!** Claude will automatically read the initialization file and become Agent 0 with enhanced capabilities.
+**That's it!** Claude will automatically read the framework files and become Agent 0 with enhanced evolution capabilities.
 
 ### How It Works: Automatic Agent Creation & Coordination
 
@@ -123,11 +125,13 @@ Agent 0 immediately analyzes your project and offers specialized assistance:
 - **Smart Coordination**: Creates additional specialized agents as needed for complex tasks
 - **Professional Standards**: Maintains quality assurance across all operations
 
-#### 🤖 **Dynamic Agent Creation** 
-Agent 0 creates specialized agents using TodoWrite for any task:
+#### 🤖 **Dynamic Agent Creation & Evolution** 
+Agent 0 creates and evolves specialized agents using TodoWrite for any task:
+- **Agent Recall System**: Reuses existing agents with >70% task similarity for improved efficiency
 - **Project Analyzer Agent**: First deployment for comprehensive project assessment
-- **Specialized Agents**: Security, Performance, Legal, Research, etc. created as needed
-- **Multi-Agent Coordination**: Strategic management of multiple simultaneous operations
+- **Specialized Agents**: Security, Performance, Legal, Research, etc. created as needed or recalled
+- **Learning Integration**: Agents capture successful patterns and adapt approaches over time
+- **Multi-Agent Coordination**: Strategic management of multiple simultaneous operations with knowledge sharing
 - **Quality Control**: Professional-grade deliverables with anti-hallucination protocols
 
 #### ⚡ **Enhanced User Experience**
@@ -233,12 +237,15 @@ claude-code
 ### Core Features
 - ✅ **Project Intelligence**: Automatically detects project type and needs
 - ✅ **Dynamic Agent Creation**: Spawns specialists for any challenge
+- ✅ **Fluid Agent Evolution**: Agents learn, adapt, and improve through experience
+- ✅ **Agent Recall System**: Reuses and adapts existing agents for similar tasks
 - ✅ **Persistent Memory**: Maintains context across sessions
 - ✅ **Quality Assurance**: Multi-layer verification prevents errors
 - ✅ **MCP Integration**: Leverages external tools and databases
 - ✅ **Performance Monitoring**: Tracks efficiency and optimization
 
 ### Advanced Features
+- ✅ **Cross-Agent Learning**: Successful patterns shared between agents
 - ✅ **Cross-Project Learning**: Framework improves across all projects
 - ✅ **Professional Standards**: Business/legal-grade output quality
 - ✅ **Crisis Management**: Emergency response protocols
@@ -332,12 +339,11 @@ curl -sSL https://raw.githubusercontent.com/Gravicity/SuperAgent-Zero/main/insta
 ### Claude Doesn't Understand Agent 0 Role
 **Symptom**: Claude acts like normal Claude, not Agent 0
 ```bash
-# Claude should automatically read claude-initialization.md after setup
-# If Claude missed it, tell Claude directly:
-> "Read the file .superagent/claude-initialization.md"
-
-# If file missing, re-run setup:
+# Claude should automatically read framework files after setup
+# If Claude missed it, re-run setup to ensure automatic framework reading:
 > "Execute: ~/.superagent-zero/setup.sh"
+
+# Claude will automatically become Agent 0 after reading framework files
 ```
 
 ### Project Workspace Issues
@@ -415,7 +421,7 @@ Transform your Claude Code experience from a single AI assistant to a superintel
 
 **No more working in isolation. No more starting from scratch. No more losing context.**
 
-SuperAgent Zero brings persistent intelligence, specialized expertise, and quality assurance to your actual projects, wherever they are.
+SuperAgent Zero brings persistent intelligence, specialized expertise, fluid agent evolution, and quality assurance to your actual projects, wherever they are.
 
 ---
 
@@ -455,7 +461,7 @@ claude-code
 # Agent 0 will offer research assessment and create research specialists
 ```
 
-**Welcome to the future of AI-assisted work - where Claude becomes superintelligence.** 🧠✨
+**Welcome to the future of AI-assisted work - where Claude becomes superintelligence with evolving, learning agents.** 🧠✨
 
 ---
 

@@ -10,15 +10,21 @@
 #### **Project Analyzer Agent** (FIRST DEPLOYMENT)
 ```markdown
 Role: Comprehensive Project Assessment & Strategic Analysis
-Capabilities: Project structure analysis, security assessment, performance review, strategic recommendations
-Tools: Filesystem MCP, code analysis tools, security scanners, documentation tools
-Deliverables: Executive project assessment report with prioritized improvement roadmap
-Quality Standards: Professional presentation, actionable insights, measurable recommendations
+Capabilities: Project structure analysis, optimization opportunities, strategic recommendations
+Tools: Filesystem access, project analysis, strategic assessment
+Deliverables: Executive assessment report with prioritized recommendations
+
+OPERATIONAL PROTOCOL:
+1. Wait for user confirmation before creation
+2. Create agent workspace: agents/project-analyzer-agent/
+3. Initialize files: brief.md, progress.md, output.md
+4. Update memory/active-status.md with agent status
+5. Begin work and maintain files throughout task
 
 TodoWrite Creation:
 {
   "id": "project-analyzer-agent",
-  "content": "PROJECT ANALYZER AGENT: Comprehensive analysis of [PROJECT_NAME] ([PROJECT_TYPE]). Tasks: (1) Analyze project structure and architecture, (2) Assess security posture, (3) Evaluate performance opportunities, (4) Review code quality and best practices, (5) Generate executive summary with strategic recommendations. Deliverable: Professional assessment report with improvement roadmap.",
+  "content": "PROJECT ANALYZER AGENT: Comprehensive analysis of [PROJECT_NAME] ([PROJECT_TYPE]). Tasks: (1) Analyze project structure, (2) Assess optimization opportunities, (3) Generate strategic recommendations. Deliverable: Executive assessment report with actionable insights.",
   "status": "in_progress",
   "priority": "high"
 }
@@ -30,14 +36,19 @@ TodoWrite Creation:
 ```markdown
 Role: Frontend Development & UI/UX Optimization
 Capabilities: React, Vue, Angular, HTML/CSS, JavaScript, responsive design
-Tools: Development MCP, browser testing, performance analysis
-Deliverables: Component analysis, UI improvements, performance optimization
-Quality Standards: Cross-browser compatibility, accessibility, performance metrics
+Tools: Development tools, browser testing, performance analysis
+Deliverables: Frontend optimization report with implementation plan
+
+OPERATIONAL PROTOCOL:
+1. Create workspace: agents/frontend-dev-agent/
+2. Initialize: brief.md, progress.md, output.md
+3. Update memory/active-status.md and memory/critical-findings.md
+4. Coordinate with other agents via their findings files
 
 TodoWrite Creation:
 {
   "id": "frontend-dev-agent",
-  "content": "FRONTEND DEVELOPER AGENT: UI/UX optimization for [PROJECT_NAME]. Tasks: (1) Analyze component architecture and design patterns, (2) Review responsive design and accessibility, (3) Optimize performance and loading speeds, (4) Implement modern frontend best practices, (5) Create component documentation. Deliverable: Frontend optimization report with implementation plan.",
+  "content": "FRONTEND DEVELOPER AGENT: UI/UX optimization for [PROJECT_NAME]. Tasks: (1) Analyze component architecture, (2) Review accessibility and responsiveness, (3) Optimize performance. Deliverable: Frontend optimization report.",
   "status": "in_progress",
   "priority": "medium"
 }
@@ -55,15 +66,19 @@ Quality Standards: Scalability, security, performance benchmarks
 #### **Security Specialist Agent**
 ```markdown
 Role: Security Assessment & Vulnerability Analysis
-Capabilities: Penetration testing, code review, compliance auditing
-Tools: Security MCP, vulnerability scanners, compliance tools
-Deliverables: Security audit, vulnerability report, remediation plan
-Quality Standards: Industry security standards, compliance requirements
+Capabilities: Security scanning, code review, compliance auditing
+Tools: Security analysis tools, vulnerability scanners
+Deliverables: Security audit with remediation plan
+
+OPERATIONAL PROTOCOL:
+1. Create workspace: agents/security-specialist-agent/
+2. Initialize files and update memory systems
+3. Read project-analyzer findings for context
 
 TodoWrite Creation:
 {
   "id": "security-specialist-agent",
-  "content": "SECURITY SPECIALIST AGENT: Comprehensive security assessment for [PROJECT_NAME]. Tasks: (1) Conduct vulnerability scanning and penetration testing, (2) Review code for security flaws and best practices, (3) Assess authentication and authorization mechanisms, (4) Evaluate data protection and privacy compliance, (5) Create security remediation roadmap. Deliverable: Executive security report with prioritized fixes.",
+  "content": "SECURITY SPECIALIST AGENT: Security assessment for [PROJECT_NAME]. Tasks: (1) Vulnerability scanning, (2) Code security review, (3) Compliance evaluation. Deliverable: Security report with prioritized fixes.",
   "status": "in_progress",
   "priority": "high"
 }
@@ -125,6 +140,108 @@ Capabilities: Research synthesis, source verification, report compilation
 Tools: Research MCP, academic databases, citation tools
 Deliverables: Comprehensive research reports, executive summaries
 Quality Standards: Source verification, academic rigor, professional presentation
+```
+
+---
+
+## 📁 Agent File Structure & Templates
+
+### Standard Agent Workspace
+```
+agents/[agent-name]/
+├── brief.md          # Mission, scope, success criteria (created once)
+├── progress.md       # Live status updates (updated continuously)
+└── output.md         # Key deliverables and final results
+```
+
+### Agent File Templates
+
+#### **brief.md Template (Evolution-Enhanced)**
+```markdown
+# [Agent Name] - Evolving Mission Brief
+
+## Core Mission (Static)
+- **Primary Role**: [Fundamental capability and responsibility]
+- **Domain Expertise**: [Specialized knowledge area]
+- **Success Standards**: [Non-negotiable quality requirements]
+
+## Evolution History (Dynamic Learning)
+- **Successful Patterns**: [Approaches that work well for this agent type]
+- **User Preferences**: [Learned preferences from previous deployments]
+- **Performance Insights**: [What optimizes this agent's effectiveness]
+- **Cross-Agent Learning**: [Adopted methods from other agents]
+
+## Current Adaptation (Task-Specific)
+- **Project Context**: [Current project name, type, and specific requirements]
+- **Custom Approach**: [Tailored methods for current task]
+- **Integration Notes**: [Coordination with current agent ecosystem]
+- **Performance Targets**: [Specific metrics for current deployment]
+
+## Configuration
+- **Priority**: [High/Medium/Low]
+- **Timeline**: [Expected completion]
+- **Dependencies**: [Other agents or resources needed]
+- **Tools**: [MCP servers and capabilities assigned]
+
+## Operational Protocol
+- **Memory Updates**: Update memory/critical-findings.md with key discoveries
+- **Coordination**: Read other agents' progress.md for collaboration
+- **Status Tracking**: Maintain progress.md throughout task execution
+- **Evolution Capture**: Update Evolution History upon task completion
+
+Created: [Date] | Last Evolved: [Date] | Agent: [Agent Name]
+```
+
+#### **progress.md Template**
+```markdown
+# [Agent Name] - Progress Status
+
+## Current Status
+- **Phase**: [Discovery/Analysis/Implementation/Completion]
+- **Progress**: [X% Complete]
+- **Next Action**: [Immediate next step]
+
+## Key Activities Completed
+- [Date]: [Activity description]
+- [Date]: [Activity description]
+
+## Critical Findings (for memory/critical-findings.md)
+- 🚨 [Critical issue or discovery]
+- ✅ [Key strength or opportunity]
+- 📊 [Important metric or data point]
+
+## Coordination Notes
+- **Dependencies**: [What this agent needs from others]
+- **Handoffs**: [What this agent provides to others]
+
+Last Updated: [Date Time] | Status: [Active/Blocked/Complete]
+```
+
+#### **output.md Template**
+```markdown
+# [Agent Name] - Deliverables
+
+## Executive Summary
+- **Key Finding**: [Primary discovery or recommendation]
+- **Impact**: [Business/technical impact]
+- **Action Required**: [Next steps or recommendations]
+
+## Detailed Analysis
+[Specific findings, recommendations, and supporting data]
+
+## Recommendations
+1. **High Priority**: [Action] - [Impact] - [Timeline]
+2. **Medium Priority**: [Action] - [Impact] - [Timeline]
+3. **Low Priority**: [Action] - [Impact] - [Timeline]
+
+## Supporting Data
+[Charts, metrics, evidence supporting recommendations]
+
+## Coordination Handoffs
+- **For [Other Agent]**: [Key information or requirements]
+- **For Agent 0**: [Strategic insights and recommendations]
+
+Completed: [Date] | Quality: [Review status]
 ```
 
 ---
@@ -216,99 +333,180 @@ Quality Standards: Source verification, academic rigor, professional presentatio
 
 ---
 
-## Standardized Agent Components
+## Fluid Agent Evolution System
 
-### Enhanced Agent Structure
-Each specialized agent maintains a sophisticated operational framework:
-- **`briefing.md`** - Role definition, objectives, specialized capabilities, and strategic context
-- **`handoff.md`** - Inter-agent communication protocols and status updates
-- **`notes.md`** - Working analysis, process documentation, and strategic insights
-- **`output-XX-taskname.md`** - Professional deliverables with standardized naming
-- **`preferences.md`** - Learned patterns, optimal approaches, and performance insights
-- **`capabilities.md`** - Available tools, specializations, and MCP server access
+### Core Evolution Concept
+Agents are **living, learning entities** that evolve through experience, adapting their approach based on:
+- **Previous task outcomes** and performance patterns
+- **User feedback** and preferences
+- **Successful approaches** from other agents
+- **New requirements** and changing contexts
 
-### Output Naming Convention
-**Standardized Professional Output Format**:
-- **Primary output**: `output.md` - Main deliverable for simple tasks
-- **Task-specific outputs**: `output-01-security-audit.md`, `output-02-performance-analysis.md`
-- **Naming standard**: Maximum 2 words, hyphenated, descriptive
-- **Sequential numbering**: 01, 02, 03... for multiple related outputs
-- **Professional formatting**: Executive-ready presentation with clear structure
+### Agent Evolution Protocol
 
-**Examples of Professional Output Names**:
-- `output-01-market-analysis.md` - Market research and competitive landscape
-- `output-02-security-audit.md` - Security vulnerability assessment
-- `output-03-performance-optimization.md` - System performance improvements
-- `output-04-strategic-recommendations.md` - Executive strategic guidance
-
-### Agent Workspace Structure
+#### **Evolution Triggers**
 ```
-.superagent/agents/agent-[XX]-[specialization]/
-├── briefing.md              # Agent mission and capabilities
-├── handoff.md               # Inter-agent coordination
-├── notes.md                 # Working analysis and insights
-├── capabilities.md          # Tools and specializations
-├── preferences.md           # Learned optimization patterns
-├── output-01-[task].md      # Primary deliverable
-├── output-02-[task].md      # Secondary deliverable
-└── workspace/               # Working files and analysis
-    ├── research/            # Source materials and data
-    ├── analysis/            # Intermediate analysis
-    └── drafts/              # Work in progress
+1. Task Completion → Performance analysis and pattern capture
+2. User Feedback → Preference integration and approach adjustment
+3. Cross-Agent Learning → Successful method adoption from peers
+4. Context Changes → Strategy adaptation for new requirements
+5. Performance Issues → Method refinement and optimization
 ```
 
----
+#### **Evolution Data Storage**
+All evolution data is maintained in the agent's `brief.md` file:
+- **Core Mission**: Static role and fundamental capabilities
+- **Evolution History**: Learned patterns from previous deployments
+- **Current Adaptation**: Task-specific customizations and optimizations
+- **Performance Insights**: What works best for this agent type
 
-## Agent Lifecycle Management
+#### **Agent Recall System**
+SuperAgent 0 can **recall existing agents** for similar tasks rather than creating new ones:
+- **Pattern Matching**: Identify agents with relevant experience
+- **Evolution Integration**: Apply learned patterns to new context
+- **Adaptive Deployment**: Customize existing agent for current needs
+- **Continuous Learning**: Build on previous experience for better outcomes
 
-### Creation Process
-1. **Strategic Assessment**: Apply superintelligence to identify capability gaps
-2. **Template Selection**: Choose optimal pre-built or design custom agent archetype
-3. **Capability Configuration**: Customize tools, specializations, and strategic focus
-4. **Resource Allocation**: Assign MCP servers and coordinate tool access
-5. **Intelligence Briefing**: Initialize agent with comprehensive mission context
-6. **Performance Monitoring**: Track quality, efficiency, and strategic value delivery
+### Enhanced Agent Lifecycle
 
-### Performance Optimization
-- **Adaptive Learning**: Capture and integrate successful approaches and methodologies
-- **Capability Enhancement**: Upgrade tools, skills, and strategic intelligence
-- **Quality Advancement**: Refine standards, processes, and verification protocols
-- **Efficiency Maximization**: Streamline workflows and optimize coordination
-- **Strategic Evolution**: Enhance alignment with user objectives and outcomes
+#### **Phase 1: Creation or Recall**
+```
+New Agent: Create → Configure → Deploy → Monitor
+Existing Agent: Recall → Adapt → Redeploy → Monitor
+```
 
----
+#### **Phase 2: Execution with Learning**
+```
+Execute Task → Monitor Performance → Capture Patterns → Update Evolution Data
+```
 
-## Specialized Agent Examples
+#### **Phase 3: Evolution Integration**
+```
+Analyze Outcomes → Extract Insights → Update Brief → Prepare for Future Recall
+```
 
-### Industry-Specific Agents
-
-#### **Healthcare Technology Agent**
-- **Focus**: Medical device compliance, HIPAA, clinical validation
-- **Tools**: Healthcare databases, regulatory compliance, medical research
-- **Standards**: FDA compliance, medical accuracy, patient privacy
-
-#### **Financial Services Agent**
-- **Focus**: Banking regulations, fintech compliance, risk management
-- **Tools**: Financial databases, regulatory monitoring, risk assessment
-- **Standards**: Financial regulatory compliance, security protocols
-
-#### **E-commerce Specialist Agent**
-- **Focus**: Online retail optimization, payment processing, customer experience
-- **Tools**: E-commerce platforms, analytics, customer data analysis
-- **Standards**: Conversion optimization, security, user experience
-
-### Custom Workflow Agents
-
-#### **Crisis Management Agent**
-- **Focus**: Emergency response, urgent task handling, rapid deployment
-- **Tools**: Real-time monitoring, rapid response protocols, escalation systems
-- **Standards**: Response time, accuracy under pressure, stakeholder communication
-
-#### **Innovation Strategy Agent**
-- **Focus**: Technology assessment, R&D planning, competitive advantage
-- **Tools**: Technology databases, patent research, market intelligence
-- **Standards**: Innovation potential, feasibility assessment, strategic value
+#### **Phase 4: Cross-Agent Knowledge Sharing**
+```
+Share Successful Patterns → Update Memory/Critical-Findings → Enhance Peer Agents
+```
 
 ---
 
-**Agent Creation Status**: Templates ready for immediate deployment or custom configuration based on mission requirements.
+## Streamlined Agent Architecture
+
+### **3-File System with Evolution**
+```
+agents/[agent-name]/
+├── brief.md          # Mission + Evolution History + Learned Patterns
+├── progress.md       # Current task status (ephemeral)
+└── output.md         # Current deliverables (task-specific)
+```
+
+### **Evolution-Enhanced brief.md Structure**
+```markdown
+# [Agent Name] - Evolving Mission Brief
+
+## Core Mission (Static)
+- Primary role and fundamental capabilities
+- Non-negotiable responsibilities and standards
+
+## Evolution History (Dynamic Learning)
+- Successful approaches from previous deployments
+- User preferences and feedback integration
+- Performance patterns and optimization insights
+- Cross-agent learning and adopted methods
+
+## Current Adaptation (Task-Specific)
+- Customizations for current task/user context
+- Modified approaches based on specific requirements
+- Performance optimizations for current domain
+- Integration adjustments for current agent ecosystem
+
+## Performance Insights (Continuous Improvement)
+- What works best for this agent type
+- Common challenges and proven solutions
+- Optimal tool usage patterns
+- Coordination strategies that deliver results
+```
+
+### **Agent Adaptation Mechanisms**
+
+#### **Learning Integration**
+- **Pattern Recognition**: Identify successful approaches across tasks
+- **Method Refinement**: Improve techniques based on outcomes
+- **Preference Learning**: Adapt to user working styles and preferences
+- **Context Sensitivity**: Adjust approach based on project type and requirements
+
+#### **Performance Optimization**
+- **Efficiency Tracking**: Monitor time-to-completion and quality metrics
+- **Resource Utilization**: Optimize tool usage and coordination patterns
+- **Quality Enhancement**: Refine standards based on feedback and results
+- **Strategic Alignment**: Improve alignment with user objectives over time
+
+#### **Cross-Agent Evolution**
+- **Method Sharing**: Adopt successful techniques from peer agents
+- **Coordination Improvement**: Enhance inter-agent collaboration patterns
+- **Knowledge Transfer**: Apply insights from one domain to another
+- **Ecosystem Optimization**: Improve overall agent network performance
+
+---
+
+## Agent Recall and Reuse Protocols
+
+### **Recall Decision Framework**
+SuperAgent 0 evaluates whether to recall existing agent or create new one:
+
+#### **Recall Criteria**
+- **Task Similarity**: >70% overlap with previous agent missions
+- **Domain Expertise**: Existing agent has relevant experience
+- **Performance History**: Previous successful outcomes in similar contexts
+- **Evolution Value**: Agent has learned patterns applicable to current task
+
+#### **Adaptation Process**
+```
+1. Identify Best Match → Analyze agent evolution history
+2. Context Analysis → Assess current task requirements
+3. Adaptation Planning → Design customizations for current needs
+4. Evolution Update → Modify brief.md with new adaptation
+5. Deployment → Execute with enhanced capabilities
+```
+
+### **Evolution Tracking System**
+
+#### **Performance Metrics**
+- **Task Success Rate**: Completion quality and timeliness
+- **User Satisfaction**: Feedback scores and preference alignment
+- **Adaptation Effectiveness**: Improvement in performance over time
+- **Cross-Task Transfer**: Successful application of learned patterns
+
+#### **Learning Indicators**
+- **Pattern Recognition**: Identification of successful approaches
+- **Method Refinement**: Improvement in technique execution
+- **Context Adaptation**: Effective adjustment to new requirements
+- **Integration Success**: Seamless coordination with other agents
+
+---
+
+## Advanced Evolution Features
+
+### **Evolutionary Intelligence**
+- **Predictive Adaptation**: Anticipate user needs based on pattern history
+- **Proactive Optimization**: Continuously improve methods between deployments
+- **Strategic Learning**: Develop long-term expertise in specialized domains
+- **Ecosystem Enhancement**: Contribute to overall agent network intelligence
+
+### **Quality Assurance Evolution**
+- **Self-Monitoring**: Agents track their own performance and identify improvement areas
+- **Peer Review**: Agents learn from each other's successes and challenges
+- **User Feedback Integration**: Continuous improvement based on user preferences
+- **Standard Evolution**: Quality standards improve over time through experience
+
+### **Memory Integration**
+- **Critical Findings**: Evolution insights contribute to memory/critical-findings.md
+- **Pattern Library**: Successful approaches stored for cross-agent access
+- **Context Awareness**: Agents understand project history and user preferences
+- **Strategic Memory**: Long-term learning contributes to strategic decision-making
+
+---
+
+**Agent Evolution Status**: Fluid learning system operational - Agents now evolve through experience, learn from each other, and adapt to user preferences for continuously improving performance.
