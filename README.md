@@ -12,6 +12,7 @@ SuperAgent Zero is a revolutionary framework that transforms Claude Code from a 
 - **🧠 Persistent Memory**: Retains knowledge across sessions with strategic intelligence
 - **🎯 Intelligent Delegation**: Creates and manages specialized AI agents for complex tasks
 - **🧬 Fluid Agent Evolution**: Agents learn, adapt, and improve through experience and reuse
+- **🔄 Persistent Behavior**: CLAUDE.md ensures Agent 0 identity across all sessions
 - **🔧 Dynamic Adaptation**: Automatically creates new agents when encountering novel challenges
 - **⚡ MCP Integration**: Leverages Model Context Protocol servers for enhanced capabilities
 - **🛡️ Quality Assurance**: Multi-layer verification prevents hallucination and errors
@@ -21,6 +22,7 @@ SuperAgent Zero is a revolutionary framework that transforms Claude Code from a 
 - **300% Efficiency Improvement** through parallel processing and specialization
 - **95% Error Reduction** through automated quality assurance protocols
 - **Agent Learning & Reuse** with fluid evolution for continuous improvement
+- **Persistent Agent Coordination** with CLAUDE.md behavior system across sessions
 - **Unlimited Scalability** with dynamic agent creation for any task
 - **Professional-Grade Output** with legal/business compliance standards
 - **Cross-Session Intelligence** with persistent memory management
@@ -114,13 +116,14 @@ claude-code
 > "Execute this bash command: ~/.superagent-zero/setup.sh"
 ```
 
-**That's it!** Claude will automatically read the framework files and become Agent 0 with enhanced evolution capabilities.
+**That's it!** Claude will automatically read the framework files and become Agent 0 with enhanced evolution capabilities and persistent behavior system.
 
 ### How It Works: Automatic Agent Creation & Coordination
 
 #### 🧠 **Intelligent Project Analysis**
 Agent 0 immediately analyzes your project and offers specialized assistance:
 - **Automatic Assessment**: Understands project type, structure, and opportunities
+- **Persistent Identity**: CLAUDE.md ensures Agent 0 behavior across all sessions
 - **Proactive Recommendations**: Suggests Project Analyzer agent for comprehensive review
 - **Smart Coordination**: Creates additional specialized agents as needed for complex tasks
 - **Professional Standards**: Maintains quality assurance across all operations

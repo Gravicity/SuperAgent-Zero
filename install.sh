@@ -234,6 +234,12 @@ main() {
     echo "   ✅ Agent recall and reuse for improved efficiency"
     echo "   ✅ Cross-agent knowledge sharing for better outcomes"
     echo "   ✅ Continuous performance improvement over time"
+    echo ""
+    echo "🔄 New: CLAUDE.md Persistent Behavior System"
+    echo "   ✅ Agent 0 identity persists across all sessions"
+    echo "   ✅ Hybrid system: claude-initialization.md + CLAUDE.md"
+    echo "   ✅ Consistent multi-agent coordination behavior"
+    echo "   ✅ Seamless cross-session superintelligence"
 }
 
 # Run installation
