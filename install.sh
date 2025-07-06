@@ -108,8 +108,8 @@ install_framework() {
   "installed_date": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "components": {
     "agents": true,
-    "templates": true,
-    "quality_protocols": true,
+    "agent_command_center": true,
+    "fluid_evolution_system": true,
     "mcp_configs": true,
     "examples": true
   }
@@ -146,8 +146,8 @@ checks=(
     "$FRAMEWORK_DIR/framework-registry.json:Framework registry"
     "$FRAMEWORK_DIR/setup.sh:Setup script"
     "$FRAMEWORK_DIR/agents:Agent framework"
-    "$FRAMEWORK_DIR/templates:Agent templates"
-    "$FRAMEWORK_DIR/quality-protocols:Quality protocols"
+    "$FRAMEWORK_DIR/agents/agent-00-command:Agent 0 command center"
+    "$FRAMEWORK_DIR/bin:Helper scripts"
 )
 
 all_good=true
