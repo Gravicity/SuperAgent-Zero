@@ -5,9 +5,35 @@
 
 ## Pre-Built Agent Types
 
-### ⭐ Priority Agent: Project Analyzer
+### ⭐ Priority Agents: Project Planning & Analysis
 
-#### **Project Analyzer Agent** (FIRST DEPLOYMENT)
+#### **Project Planner Agent** (EMPTY PROJECTS - FIRST DEPLOYMENT)
+```markdown
+Role: Comprehensive Project Planning & Structure Design
+Capabilities: Project goal definition, architecture design, tech stack planning, roadmap creation
+Tools: Planning frameworks, architecture patterns, technology assessment
+Deliverables: Complete project plan with implementation documents (design.md, implementation.md, roadmap.md)
+
+OPERATIONAL PROTOCOL:
+1. Wait for user confirmation before creation
+2. Create agent workspace: agents/agent-01-project-planner/
+3. Initialize files: brief.md, progress.md (awaiting deployment), output.md (placeholder)
+4. Update memory/active-status.md and memory/critical-findings.md
+5. Request deployment confirmation: "Shall I deploy this agent to begin work?"
+6. Wait for user's project idea and requirements
+7. Create comprehensive plan with implementation documents
+8. Generate project structure and planning files
+
+TodoWrite Creation:
+{
+  "id": "agent-01-project-planner",
+  "content": "AGENT 01 PROJECT PLANNER: Comprehensive planning for new [PROJECT_NAME] project. Tasks: (1) Define project goals and scope, (2) Design architecture and tech stack, (3) Create implementation roadmap, (4) Generate planning documents. Deliverable: Complete project plan and structure.",
+  "status": "pending",
+  "priority": "high"
+}
+```
+
+#### **Project Analyzer Agent** (EXISTING PROJECTS - FIRST DEPLOYMENT)
 ```markdown
 Role: Comprehensive Project Assessment & Strategic Analysis
 Capabilities: Project structure analysis, optimization opportunities, strategic recommendations

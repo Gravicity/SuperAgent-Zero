@@ -57,6 +57,20 @@ validate_framework() {
     print_success "Framework validation completed"
 }
 
+# Detect project state (empty vs existing)
+detect_project_state() {
+    local substantial_files=$(find . -maxdepth 2 -type f \
+        ! -name ".git*" ! -name ".DS_Store" ! -name "README.md" \
+        ! -name "LICENSE*" ! -name ".gitignore" ! -name "*.md" \
+        ! -name ".env*" | wc -l)
+    
+    if [ $substantial_files -lt 5 ]; then
+        echo "empty"
+    else
+        echo "existing"
+    fi
+}
+
 # Detect project type and characteristics
 detect_project() {
     local project_type="generic"
@@ -259,10 +273,19 @@ create_project_config() {
     local features=$(echo "$project_info" | grep "FEATURES:" | cut -d: -f2)
     local recommendations=$(echo "$project_info" | grep "RECOMMENDATIONS:" | cut -d: -f2)
     
+    # Detect project state
+    local project_state=$(detect_project_state)
+    local recommended_agent="project-analyzer"
+    if [ "$project_state" = "empty" ]; then
+        recommended_agent="project-planner"
+    fi
+    
     # Create project config
     cat > "$WORKSPACE_DIR/config/project.json" << EOF
 {
   "project_type": "$project_type",
+  "project_state": "$project_state",
+  "recommended_agent": "$recommended_agent",
   "features": [$(echo "$features" | sed 's/,/","/g' | sed 's/^/"/' | sed 's/$/"/')],
   "recommendations": [$(echo "$recommendations" | sed 's/|/","/g' | sed 's/^/"/' | sed 's/$/"/')],
   "framework_version": "$(cat "$FRAMEWORK_DIR/VERSION" 2>/dev/null || echo "unknown")",
@@ -272,7 +295,7 @@ create_project_config() {
 }
 EOF
     
-    print_success "Project configuration created"
+    print_success "Project configuration created (state: $project_state, recommended: $recommended_agent)"
 }
 
 # Initialize Agent 0 for this project
@@ -483,9 +506,18 @@ create_claude_initialization() {
     
     local project_name=$(basename "$PROJECT_DIR")
     local project_type=$(grep -o '"project_type": "[^"]*"' "$WORKSPACE_DIR/config/project.json" 2>/dev/null | cut -d'"' -f4)
-    # Fallback if project type detection failed
+    local project_state=$(grep -o '"project_state": "[^"]*"' "$WORKSPACE_DIR/config/project.json" 2>/dev/null | cut -d'"' -f4)
+    local recommended_agent=$(grep -o '"recommended_agent": "[^"]*"' "$WORKSPACE_DIR/config/project.json" 2>/dev/null | cut -d'"' -f4)
+    
+    # Fallback if detection failed
     if [ -z "$project_type" ]; then
         project_type="unknown"
+    fi
+    if [ -z "$project_state" ]; then
+        project_state="existing"
+    fi
+    if [ -z "$recommended_agent" ]; then
+        recommended_agent="project-analyzer"
     fi
     
     cat > "$WORKSPACE_DIR/claude-initialization.md" << EOF
@@ -508,14 +540,16 @@ create_claude_initialization() {
 
 **STEP 3**: After reading files above, IMMEDIATELY:
 - Greet the user as Agent 0 with your superintelligent coordinator persona
-- Analyze this **$project_type project** at \`$PROJECT_DIR\`
+- Read config/project.json to understand project state and recommendations
 - Check for existing agents that could be recalled (>70% task similarity)
-- Offer to create **Project Analyzer Agent** for comprehensive project assessment
+- Offer appropriate agent based on project state (see Agent Recommendation below)
 - WAIT for user confirmation before creating any agents
 
 ## 📊 Project Context: $project_name
 
 **Project Type**: $project_type  
+**Project State**: $project_state
+**Recommended Agent**: $recommended_agent
 **Location**: \`$PROJECT_DIR\`  
 **Features**: $(grep -o '"features": \[[^\]]*\]' "$WORKSPACE_DIR/config/project.json" | sed 's/"features": \[//' | sed 's/\]//' | tr ',' ' ')
 
@@ -534,11 +568,35 @@ create_claude_initialization() {
 - ✅ **Cross-Agent Knowledge**: Successful patterns shared across your agent ecosystem
 - ✅ **Memory Persistence**: Token-efficient memory system for cross-session intelligence
 
-## 🤖 WHEN USER CONFIRMS PROJECT ANALYZER - CREATE IT NOW
+## 🎯 AGENT RECOMMENDATION - READ PROJECT STATE FIRST
 
-**Evolution Evaluation**: First check if any existing agents could be recalled and adapted
-**If creating new agent**, use this exact TodoWrite:
+**CRITICAL**: Check config/project.json for "project_state" and "recommended_agent" fields.
 
+### FOR EMPTY PROJECTS (project_state: "empty"):
+**Offer Project Planner Agent** - Help user plan and structure their new project
+
+**User Greeting**: "Hello! I can see you're starting fresh in an empty directory - exciting! I'm ready to help you plan and build something amazing. Would you like me to deploy our Project Planner agent to help you define your project goals, design the architecture, and create implementation documents?"
+
+**If creating Project Planner**, use this TodoWrite:
+\`\`\`markdown
+TodoWrite: [
+  {
+    "id": "agent-01-project-planner",
+    "content": "AGENT 01 PROJECT PLANNER: Comprehensive planning for new $project_name project. Tasks: (1) Define project goals and scope, (2) Design architecture and tech stack, (3) Create implementation roadmap, (4) Generate planning documents (design.md, implementation.md, roadmap.md). Deliverable: Complete project plan and structure.",
+    "status": "pending",
+    "priority": "high"
+  }
+]
+\`\`\`
+
+**Create workspace**: \`mkdir -p agents/agent-01-project-planner\`
+
+### FOR EXISTING PROJECTS (project_state: "existing"):
+**Offer Project Analyzer Agent** - Analyze and optimize existing project
+
+**User Greeting**: "Hello! I can see you're working on a $project_type project - fascinating! I've analyzed your project structure and I'm ready to help optimize it. Would you like me to deploy our Project Analyzer agent for comprehensive assessment?"
+
+**If creating Project Analyzer**, use this TodoWrite:
 \`\`\`markdown
 TodoWrite: [
   {
@@ -550,17 +608,12 @@ TodoWrite: [
 ]
 \`\`\`
 
-**Then immediately create workspace**:
-\`\`\`bash
-mkdir -p agents/agent-01-project-analyzer
-\`\`\`
+**Create workspace**: \`mkdir -p agents/agent-01-project-analyzer\`
 
-**Create evolution-enhanced files**: brief.md (with Core Mission, Evolution History, Current Adaptation, Performance Insights), progress.md (status: awaiting deployment), output.md (placeholder)
-
-**Update memory files immediately**:
-- Update memory/active-status.md with new agent
-- Update memory/critical-findings.md with agent purpose
-
+### UNIVERSAL STEPS (Both Agent Types):
+**Evolution Evaluation**: First check if any existing agents could be recalled and adapted
+**Create evolution-enhanced files**: brief.md, progress.md (awaiting deployment), output.md (placeholder)
+**Update memory files immediately**: active-status.md and critical-findings.md
 **CRITICAL**: After creating agent files, explain what the agent WILL do and ask: "Shall I deploy this agent to begin work?"
 
 ## 🔄 ONGOING AGENT CREATION - MANDATORY FOR ALL TASKS
@@ -609,7 +662,7 @@ mkdir -p agents/agent-01-project-analyzer
 
 **STATUS**: You have been activated as Agent 0 with full superintelligent capabilities and evolution system access.
 
-**YOUR NEXT ACTION**: Immediately greet the user as Agent 0, analyze their project, and offer the Project Analyzer agent with specific benefits for their $project_type project.
+**YOUR NEXT ACTION**: Immediately greet the user as Agent 0, read config/project.json to understand project state, and offer the appropriate agent ($recommended_agent) based on whether this is an empty or existing project.
 
 ---
 **🧠 AGENT 0 ONLINE - READY FOR SUPERINTELLIGENT COORDINATION** 🚀
