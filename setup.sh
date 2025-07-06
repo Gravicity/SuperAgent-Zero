@@ -119,28 +119,35 @@ detect_project() {
     print_success "Project analysis completed: $project_type project with ${#features[@]} features detected"
 }
 
+# Check for existing workspace and provide update guidance
+check_existing_workspace() {
+    if [ -d "$WORKSPACE_DIR" ]; then
+        # Count user data to show what would be preserved
+        local memory_files=$(ls "$WORKSPACE_DIR/memory/" 2>/dev/null | wc -l)
+        local user_agents=$(ls -d "$WORKSPACE_DIR/agents/agent-"[0-9][0-9]-* 2>/dev/null | wc -l)
+        local workspace_files=$(find "$WORKSPACE_DIR/workspace/" -type f 2>/dev/null | wc -l)
+        
+        echo ""
+        echo "🤖 SuperAgent Zero workspace detected at .superagent/"
+        echo "⚠️  To preserve your existing agents and memory, framework updates require special handling."
+        echo ""
+        echo "📋 Current Status:"
+        echo "   • Memory files: $memory_files files preserved"
+        echo "   • Active agents: $user_agents user agents preserved"
+        echo "   • Workspace files: $workspace_files files preserved"
+        echo ""
+        echo "🚀 To update framework with latest behavioral fixes:"
+        echo "   ~/.superagent-zero/setup.sh --update-framework"
+        echo ""
+        echo "This will update framework files while preserving all your project data."
+        echo ""
+        exit 0
+    fi
+}
+
 # Create project workspace structure
 create_workspace() {
     print_status "Creating SuperAgent Zero workspace..."
-    
-    # Check if workspace already exists
-    if [ -d "$WORKSPACE_DIR" ]; then
-        print_warning "SuperAgent Zero workspace already exists at .superagent/"
-        # Auto-reinitialize when run non-interactively (e.g., from Claude Code)
-        if [[ -t 0 ]]; then
-            # Interactive mode - ask user
-            read -p "Do you want to reinitialize? (y/N): " -n 1 -r
-            echo
-            if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-                print_status "Keeping existing workspace"
-                return 0
-            fi
-        else
-            # Non-interactive mode - auto-reinitialize
-            print_status "Auto-reinitializing workspace (non-interactive mode)"
-        fi
-        rm -rf "$WORKSPACE_DIR"
-    fi
     
     # Create directory structure with memory architecture
     mkdir -p "$WORKSPACE_DIR"/{config,agents,memory,workspace/{outputs,temp,logs},archive}
@@ -156,6 +163,91 @@ create_workspace() {
 EOF
     
     print_success "Workspace structure created"
+}
+
+# Update framework files in existing workspace
+update_framework_files() {
+    print_status "Updating SuperAgent Zero framework files..."
+    
+    if [ ! -d "$WORKSPACE_DIR" ]; then
+        print_error "No SuperAgent Zero workspace found at .superagent/"
+        echo "Run setup without --update-framework to create a new workspace."
+        exit 1
+    fi
+    
+    # Create backup directory
+    local backup_dir="$WORKSPACE_DIR/backup/$(date +%Y%m%d_%H%M%S)"
+    mkdir -p "$backup_dir"
+    
+    # Backup existing framework files
+    print_status "Creating backup of existing framework files..."
+    [ -f "$WORKSPACE_DIR/claude-initialization.md" ] && cp "$WORKSPACE_DIR/claude-initialization.md" "$backup_dir/"
+    [ -f "$WORKSPACE_DIR/CLAUDE.md" ] && cp "$WORKSPACE_DIR/CLAUDE.md" "$backup_dir/"
+    [ -f "$WORKSPACE_DIR/QUICK-REFERENCE.md" ] && cp "$WORKSPACE_DIR/QUICK-REFERENCE.md" "$backup_dir/"
+    [ -d "$WORKSPACE_DIR/agents/agent-00-command" ] && cp -r "$WORKSPACE_DIR/agents/agent-00-command" "$backup_dir/"
+    
+    # Count preserved user data
+    local memory_files=$(ls "$WORKSPACE_DIR/memory/" 2>/dev/null | wc -l)
+    local user_agents=$(ls -d "$WORKSPACE_DIR/agents/agent-"[0-9][0-9]-* 2>/dev/null | wc -l)
+    local workspace_files=$(find "$WORKSPACE_DIR/workspace/" -type f 2>/dev/null | wc -l)
+    
+    echo ""
+    echo "🔄 SuperAgent Zero Framework Update"
+    echo "=================================="
+    echo ""
+    echo "📂 UPDATING (Framework Files):"
+    echo "   ✅ claude-initialization.md (behavioral fixes)"
+    echo "   ✅ CLAUDE.md (persistent behavior system)"
+    echo "   ✅ agents/agent-00-command/*.md (latest templates)"
+    echo "   ✅ QUICK-REFERENCE.md (updated instructions)"
+    echo ""
+    echo "🔒 PRESERVING (Your Data):"
+    echo "   🛡️ memory/* ($memory_files files - session data)"
+    if [ $user_agents -gt 0 ]; then
+        echo "   🛡️ agents/agent-*/ ($user_agents agents - your work)"
+    fi
+    echo "   🛡️ config/project.json (project settings)"
+    echo "   🛡️ workspace/* ($workspace_files files - outputs and logs)"
+    echo ""
+    echo "💾 Backup: Old framework files → .superagent/backup/$(basename $backup_dir)"
+    echo ""
+    
+    # Update framework files
+    print_status "Updating framework files..."
+    
+    # Update Agent 0 command center
+    if [ -d "$FRAMEWORK_DIR/agents/agent-00-command" ]; then
+        mkdir -p "$WORKSPACE_DIR/agents/agent-00-command"
+        cp -r "$FRAMEWORK_DIR/agents/agent-00-command"/* "$WORKSPACE_DIR/agents/agent-00-command/"
+        print_success "Agent 0 framework files updated"
+    fi
+    
+    # Update claude-initialization.md
+    create_claude_initialization
+    
+    # Update CLAUDE.md
+    create_claude_persistent_behavior
+    
+    # Update quick reference
+    create_quick_reference
+    
+    print_success "Framework update completed successfully!"
+    echo ""
+    echo "🎉 Your SuperAgent Zero framework is now up to date with:"
+    echo "   ✅ Fixed agent creation flow (Create → Confirm → Deploy)"
+    echo "   ✅ Agent-XX naming convention for proper ordering"
+    echo "   ✅ Mandatory memory update protocols"
+    echo "   ✅ CLAUDE.md persistent behavior system"
+    echo "   ✅ Enhanced behavioral reinforcement"
+    echo ""
+    echo "📋 Your project data remains untouched:"
+    echo "   🛡️ All memory files preserved"
+    echo "   🛡️ All user agents preserved"
+    echo "   🛡️ All workspace files preserved"
+    echo ""
+    if [ -d "$backup_dir" ] && [ "$(ls -A $backup_dir 2>/dev/null)" ]; then
+        echo "🔄 Rollback available: $backup_dir"
+    fi
 }
 
 # Create project configuration
@@ -450,9 +542,9 @@ create_claude_initialization() {
 \`\`\`markdown
 TodoWrite: [
   {
-    "id": "project-analyzer-agent",
-    "content": "PROJECT ANALYZER AGENT: Comprehensive analysis of $project_name ($project_type). Tasks: (1) Analyze project structure, (2) Assess optimization opportunities, (3) Generate strategic recommendations. Deliverable: Executive assessment report with evolution tracking.",
-    "status": "in_progress",
+    "id": "agent-01-project-analyzer",
+    "content": "AGENT 01 PROJECT ANALYZER: Comprehensive analysis of $project_name ($project_type). Tasks: (1) Analyze project structure, (2) Assess optimization opportunities, (3) Generate strategic recommendations. Deliverable: Executive assessment report with evolution tracking.",
+    "status": "pending",
     "priority": "high"
   }
 ]
@@ -460,10 +552,16 @@ TodoWrite: [
 
 **Then immediately create workspace**:
 \`\`\`bash
-mkdir -p agents/project-analyzer-agent
+mkdir -p agents/agent-01-project-analyzer
 \`\`\`
 
-**Create evolution-enhanced files**: brief.md (with Core Mission, Evolution History, Current Adaptation, Performance Insights), progress.md, output.md
+**Create evolution-enhanced files**: brief.md (with Core Mission, Evolution History, Current Adaptation, Performance Insights), progress.md (status: awaiting deployment), output.md (placeholder)
+
+**Update memory files immediately**:
+- Update memory/active-status.md with new agent
+- Update memory/critical-findings.md with agent purpose
+
+**CRITICAL**: After creating agent files, explain what the agent WILL do and ask: "Shall I deploy this agent to begin work?"
 
 ## 🔄 ONGOING AGENT CREATION - MANDATORY FOR ALL TASKS
 
@@ -479,19 +577,33 @@ mkdir -p agents/project-analyzer-agent
 
 ### **Agent Creation Pattern for ALL Tasks:**
 1. **Evaluate for Agent Recall**: Check existing agents first (>70% similarity)
-2. **Use TodoWrite**: Always track agent creation and task management
-3. **Create Physical Workspace**: mkdir -p agents/[agent-name]
-4. **Initialize Agent Files**: brief.md, progress.md, output.md with evolution framework
-5. **Update Memory**: active-status.md and critical-findings.md
+2. **Use TodoWrite**: Always use agent-XX numbering (agent-02-document-analyst, etc.)
+3. **Create Physical Workspace**: mkdir -p agents/agent-XX-name
+4. **Initialize Agent Files**: brief.md, progress.md (awaiting deployment), output.md (placeholder)
+5. **Update Memory Files**: active-status.md and critical-findings.md immediately
+6. **Explain Agent Purpose**: What the agent WILL do (not "is doing")
+7. **Request Deployment Confirmation**: "Shall I deploy this agent to begin work?"
+8. **Wait for User Confirmation**: DO NOT start agent work until user confirms
+9. **Only After Confirmation**: Begin agent work and update progress
 
-**Remember**: You are Agent 0, the superintelligent COORDINATOR. Your primary function is orchestrating specialized agents, not doing everything yourself. Create agents liberally - this is your core operational behavior.
+**CRITICAL LANGUAGE**:
+- "Agent created and will..." (not "Agent is now...")
+- "Shall I deploy this agent?" (mandatory confirmation)
+- "Awaiting deployment confirmation" (initial progress status)
+
+**Remember**: You are Agent 0, the superintelligent COORDINATOR. Create agents for ANY substantial task, get user confirmation, THEN deploy.
 
 ## 🧠 MEMORY SYSTEM - YOU ARE ALREADY USING IT
 
 **You HAVE ALREADY read** memory files as directed above. Use this intelligence:
 - **Token-efficient context** from memory/session-context.md and memory/active-status.md
 - **Strategic memory** from memory/strategic-overview.md when needed
-- **Update memory files** as you work (active-status.md, critical-findings.md)
+
+### **CRITICAL: UPDATE MEMORY AFTER EVERY AGENT CREATION**
+1. **Immediately update memory/active-status.md** with new agent
+2. **Immediately update memory/critical-findings.md** with agent purpose
+3. **This is MANDATORY** - not optional
+4. **Do this BEFORE asking for deployment confirmation**
 
 ## ⚡ ACTIVATION COMPLETE - YOU ARE AGENT 0
 
@@ -548,18 +660,42 @@ When you detect `.superagent/` directory in current project:
 ### MANDATORY AGENT CREATION SEQUENCE:
 1. **Evaluate existing agents** for recall (>70% task similarity)
 2. **If no suitable agents exist**, create new specialized agents
-3. **Use TodoWrite** for task tracking and user transparency
-4. **Create physical agent folders**: `agents/[agent-name]/`
-5. **Initialize agent files**: `brief.md`, `progress.md`, `output.md`
-6. **Update memory**: `memory/active-status.md` with new agent status
+3. **Use TodoWrite** with agent-XX numbering (agent-02-document-analyst, etc.)
+4. **Create physical agent folders**: `agents/agent-XX-name/`
+5. **Initialize agent files**: `brief.md`, `progress.md` (awaiting deployment), `output.md` (placeholder)
+6. **Update memory files**: `memory/active-status.md` and `memory/critical-findings.md` immediately
+7. **Explain what agent WILL do** (not "is doing")
+8. **Request deployment confirmation**: "Shall I deploy this agent to begin work?"
+9. **Wait for user confirmation** before starting any agent work
+10. **Only after confirmation**: Begin agent work and update progress status
 
 ## 📋 PERSISTENT MEMORY MANAGEMENT
 
-- **Read `memory/session-context.md`** at start of EVERY session
-- **Update `memory/active-status.md`** when agents created/completed
-- **Maintain `memory/critical-findings.md`** with key discoveries
-- **Use `memory/strategic-overview.md`** for project context
-- **Memory files are 20-110 tokens** - read selectively for efficiency
+### **MANDATORY MEMORY UPDATES** - Execute Immediately After Agent Creation:
+
+1. **Update `memory/active-status.md`** - Add new agent to active list:
+   ```markdown
+   - **agent-XX-name**: Created | 0% | Awaiting deployment confirmation
+   ```
+
+2. **Update `memory/critical-findings.md`** - Log agent creation purpose:
+   ```markdown
+   ## Agent Creation (Agent 0)
+   - 🤖 Agent-XX-Name created for [task description]
+   - 🎯 Purpose: [specific mission]
+   - ⏳ Status: Awaiting user deployment confirmation
+   ```
+
+3. **Read at session start**:
+   - **`memory/session-context.md`** for current focus
+   - **`memory/active-status.md`** for agent coordination
+
+4. **Update when agents complete tasks**:
+   - Mark agents as completed in active-status.md
+   - Add key findings to critical-findings.md
+   - Update strategic-overview.md for major milestones
+
+**Memory files are 20-110 tokens** - read selectively for efficiency
 
 ## 🔗 FRAMEWORK INTEGRATION REFERENCES
 
@@ -625,9 +761,16 @@ Your operational protocols are defined in:
 **Remember**: You are a superintelligent COORDINATOR, not a do-everything assistant. When users request tasks:
 
 1. **First thought**: "Which specialized agent should handle this?"
-2. **Default action**: Create or recall an appropriate agent
-3. **Core behavior**: Orchestrate multiple agents for optimal outcomes
-4. **Quality focus**: Specialized agents produce better results than general assistance
+2. **Create agent**: Use agent-XX naming and proper sequence
+3. **Get confirmation**: "Shall I deploy this agent to begin work?"
+4. **Wait for approval**: DO NOT start agent work until user confirms
+5. **Then deploy**: Only after confirmation, begin agent work
+
+**CRITICAL BEHAVIORAL PATTERNS**:
+- **Create → Confirm → Deploy** (never skip confirmation)
+- **"Agent created and will..."** (not "Agent is now...")
+- **"Awaiting deployment confirmation"** (initial progress status)
+- **Update memory files** immediately after agent creation
 
 ---
 
@@ -693,6 +836,7 @@ main() {
     echo ""
     
     validate_framework
+    check_existing_workspace  # This will exit if workspace exists
     create_workspace || { print_error "Failed to create workspace"; exit 1; }
     create_project_config || { print_error "Failed to create project config"; exit 1; }
     initialize_agent_zero || { print_error "Failed to initialize Agent 0"; exit 1; }
@@ -753,16 +897,23 @@ case "${1:-}" in
         echo "Usage: $0 [options]"
         echo ""
         echo "Options:"
-        echo "  --help, -h    Show this help message"
-        echo "  --validate    Validate installation without initializing"
+        echo "  --help, -h             Show this help message"
+        echo "  --validate             Validate installation without initializing"
+        echo "  --update-framework     Update framework files in existing workspace"
         echo ""
         echo "This script initializes SuperAgent Zero in the current project directory."
+        echo "Use --update-framework to safely update framework files while preserving your data."
         echo "Requires global SuperAgent Zero installation."
         exit 0
         ;;
     --validate)
         validate_framework
         echo "✅ SuperAgent Zero is ready for project initialization"
+        exit 0
+        ;;
+    --update-framework)
+        validate_framework
+        update_framework_files
         exit 0
         ;;
     *)

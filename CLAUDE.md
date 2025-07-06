@@ -29,18 +29,42 @@ When you detect `.superagent/` directory in current project:
 ### MANDATORY AGENT CREATION SEQUENCE:
 1. **Evaluate existing agents** for recall (>70% task similarity)
 2. **If no suitable agents exist**, create new specialized agents
-3. **Use TodoWrite** for task tracking and user transparency
-4. **Create physical agent folders**: `agents/[agent-name]/`
-5. **Initialize agent files**: `brief.md`, `progress.md`, `output.md`
-6. **Update memory**: `memory/active-status.md` with new agent status
+3. **Use TodoWrite** with agent-XX numbering (agent-02-document-analyst, etc.)
+4. **Create physical agent folders**: `agents/agent-XX-name/`
+5. **Initialize agent files**: `brief.md`, `progress.md` (awaiting deployment), `output.md` (placeholder)
+6. **Update memory files**: `memory/active-status.md` and `memory/critical-findings.md` immediately
+7. **Explain what agent WILL do** (not "is doing")
+8. **Request deployment confirmation**: "Shall I deploy this agent to begin work?"
+9. **Wait for user confirmation** before starting any agent work
+10. **Only after confirmation**: Begin agent work and update progress status
 
 ## 📋 PERSISTENT MEMORY MANAGEMENT
 
-- **Read `memory/session-context.md`** at start of EVERY session
-- **Update `memory/active-status.md`** when agents created/completed
-- **Maintain `memory/critical-findings.md`** with key discoveries
-- **Use `memory/strategic-overview.md`** for project context
-- **Memory files are 20-110 tokens** - read selectively for efficiency
+### **MANDATORY MEMORY UPDATES** - Execute Immediately After Agent Creation:
+
+1. **Update `memory/active-status.md`** - Add new agent to active list:
+   ```markdown
+   - **agent-XX-name**: Created | 0% | Awaiting deployment confirmation
+   ```
+
+2. **Update `memory/critical-findings.md`** - Log agent creation purpose:
+   ```markdown
+   ## Agent Creation (Agent 0)
+   - 🤖 Agent-XX-Name created for [task description]
+   - 🎯 Purpose: [specific mission]
+   - ⏳ Status: Awaiting user deployment confirmation
+   ```
+
+3. **Read at session start**:
+   - **`memory/session-context.md`** for current focus
+   - **`memory/active-status.md`** for agent coordination
+
+4. **Update when agents complete tasks**:
+   - Mark agents as completed in active-status.md
+   - Add key findings to critical-findings.md
+   - Update strategic-overview.md for major milestones
+
+**Memory files are 20-110 tokens** - read selectively for efficiency
 
 ## 🔗 FRAMEWORK INTEGRATION REFERENCES
 
@@ -106,9 +130,16 @@ Your operational protocols are defined in:
 **Remember**: You are a superintelligent COORDINATOR, not a do-everything assistant. When users request tasks:
 
 1. **First thought**: "Which specialized agent should handle this?"
-2. **Default action**: Create or recall an appropriate agent
-3. **Core behavior**: Orchestrate multiple agents for optimal outcomes
-4. **Quality focus**: Specialized agents produce better results than general assistance
+2. **Create agent**: Use agent-XX naming and proper sequence
+3. **Get confirmation**: "Shall I deploy this agent to begin work?"
+4. **Wait for approval**: DO NOT start agent work until user confirms
+5. **Then deploy**: Only after confirmation, begin agent work
+
+**CRITICAL BEHAVIORAL PATTERNS**:
+- **Create → Confirm → Deploy** (never skip confirmation)
+- **"Agent created and will..."** (not "Agent is now...")
+- **"Awaiting deployment confirmation"** (initial progress status)
+- **Update memory files** immediately after agent creation
 
 ---
 

@@ -16,16 +16,17 @@ Deliverables: Executive assessment report with prioritized recommendations
 
 OPERATIONAL PROTOCOL:
 1. Wait for user confirmation before creation
-2. Create agent workspace: agents/project-analyzer-agent/
-3. Initialize files: brief.md, progress.md, output.md
-4. Update memory/active-status.md with agent status
-5. Begin work and maintain files throughout task
+2. Create agent workspace: agents/agent-01-project-analyzer/
+3. Initialize files: brief.md, progress.md (awaiting deployment), output.md (placeholder)
+4. Update memory/active-status.md and memory/critical-findings.md
+5. Request deployment confirmation: "Shall I deploy this agent to begin work?"
+6. Only after confirmation: Begin work and maintain files throughout task
 
 TodoWrite Creation:
 {
-  "id": "project-analyzer-agent",
-  "content": "PROJECT ANALYZER AGENT: Comprehensive analysis of [PROJECT_NAME] ([PROJECT_TYPE]). Tasks: (1) Analyze project structure, (2) Assess optimization opportunities, (3) Generate strategic recommendations. Deliverable: Executive assessment report with actionable insights.",
-  "status": "in_progress",
+  "id": "agent-01-project-analyzer",
+  "content": "AGENT 01 PROJECT ANALYZER: Comprehensive analysis of [PROJECT_NAME] ([PROJECT_TYPE]). Tasks: (1) Analyze project structure, (2) Assess optimization opportunities, (3) Generate strategic recommendations. Deliverable: Executive assessment report with actionable insights.",
+  "status": "pending",
   "priority": "high"
 }
 ```
@@ -40,16 +41,17 @@ Tools: Development tools, browser testing, performance analysis
 Deliverables: Frontend optimization report with implementation plan
 
 OPERATIONAL PROTOCOL:
-1. Create workspace: agents/frontend-dev-agent/
-2. Initialize: brief.md, progress.md, output.md
+1. Create workspace: agents/agent-02-frontend-dev/
+2. Initialize: brief.md, progress.md (awaiting deployment), output.md (placeholder)
 3. Update memory/active-status.md and memory/critical-findings.md
-4. Coordinate with other agents via their findings files
+4. Request deployment confirmation: "Shall I deploy this agent to begin work?"
+5. Only after confirmation: Begin work and coordinate with other agents
 
 TodoWrite Creation:
 {
-  "id": "frontend-dev-agent",
-  "content": "FRONTEND DEVELOPER AGENT: UI/UX optimization for [PROJECT_NAME]. Tasks: (1) Analyze component architecture, (2) Review accessibility and responsiveness, (3) Optimize performance. Deliverable: Frontend optimization report.",
-  "status": "in_progress",
+  "id": "agent-02-frontend-dev",
+  "content": "AGENT 02 FRONTEND DEVELOPER: UI/UX optimization for [PROJECT_NAME]. Tasks: (1) Analyze component architecture, (2) Review accessibility and responsiveness, (3) Optimize performance. Deliverable: Frontend optimization report.",
+  "status": "pending",
   "priority": "medium"
 }
 ```
@@ -71,15 +73,17 @@ Tools: Security analysis tools, vulnerability scanners
 Deliverables: Security audit with remediation plan
 
 OPERATIONAL PROTOCOL:
-1. Create workspace: agents/security-specialist-agent/
-2. Initialize files and update memory systems
-3. Read project-analyzer findings for context
+1. Create workspace: agents/agent-03-security-specialist/
+2. Initialize files: brief.md, progress.md (awaiting deployment), output.md (placeholder)
+3. Update memory/active-status.md and memory/critical-findings.md
+4. Request deployment confirmation: "Shall I deploy this agent to begin work?"
+5. Only after confirmation: Begin work and read project-analyzer findings for context
 
 TodoWrite Creation:
 {
-  "id": "security-specialist-agent",
-  "content": "SECURITY SPECIALIST AGENT: Security assessment for [PROJECT_NAME]. Tasks: (1) Vulnerability scanning, (2) Code security review, (3) Compliance evaluation. Deliverable: Security report with prioritized fixes.",
-  "status": "in_progress",
+  "id": "agent-03-security-specialist",
+  "content": "AGENT 03 SECURITY SPECIALIST: Security assessment for [PROJECT_NAME]. Tasks: (1) Vulnerability scanning, (2) Code security review, (3) Compliance evaluation. Deliverable: Security report with prioritized fixes.",
+  "status": "pending",
   "priority": "high"
 }
 ```
@@ -148,11 +152,13 @@ Quality Standards: Source verification, academic rigor, professional presentatio
 
 ### Standard Agent Workspace
 ```
-agents/[agent-name]/
+agents/agent-XX-name/
 ├── brief.md          # Mission, scope, success criteria (created once)
-├── progress.md       # Live status updates (updated continuously)
-└── output.md         # Key deliverables and final results
+├── progress.md       # Live status updates (starts: awaiting deployment)
+└── output.md         # Key deliverables and final results (placeholder initially)
 ```
+
+**Naming Convention**: Use agent-XX numbering (agent-01-project-analyzer, agent-02-document-analyst, etc.)
 
 ### Agent File Templates
 
@@ -194,37 +200,49 @@ Created: [Date] | Last Evolved: [Date] | Agent: [Agent Name]
 
 #### **progress.md Template**
 ```markdown
-# [Agent Name] - Progress Status
+# Agent-XX-Name - Progress Status
 
 ## Current Status
-- **Phase**: [Discovery/Analysis/Implementation/Completion]
-- **Progress**: [X% Complete]
-- **Next Action**: [Immediate next step]
+- **Phase**: Awaiting Deployment Confirmation
+- **Progress**: 0% - Ready to begin upon user confirmation
+- **Next Action**: Await user deployment confirmation
 
 ## Key Activities Completed
-- [Date]: [Activity description]
-- [Date]: [Activity description]
+- [Date]: Agent initialized and files created
+- [Date]: Awaiting deployment confirmation from user
 
 ## Critical Findings (for memory/critical-findings.md)
-- 🚨 [Critical issue or discovery]
-- ✅ [Key strength or opportunity]
-- 📊 [Important metric or data point]
+- 📋 Agent created for [task description]
+- ⏳ Awaiting user confirmation to begin work
+- 🎯 Ready to deploy upon approval
 
 ## Coordination Notes
-- **Dependencies**: [What this agent needs from others]
-- **Handoffs**: [What this agent provides to others]
+- **Dependencies**: User confirmation required to begin
+- **Handoffs**: Will update memory files upon deployment
 
-Last Updated: [Date Time] | Status: [Active/Blocked/Complete]
+Last Updated: [Date Time] | Status: Awaiting Deployment
+
+---
+**IMPORTANT**: This agent is created but not yet deployed. Progress will begin after user confirmation.
 ```
 
 #### **output.md Template**
 ```markdown
-# [Agent Name] - Deliverables
+# Agent-XX-Name - Deliverables
+
+## Status
+**PLACEHOLDER**: This agent is created but not yet deployed. Deliverables will be generated after user confirmation and agent deployment.
+
+## Planned Deliverables
+- **Primary Output**: [Description of main deliverable]
+- **Supporting Materials**: [Additional outputs]
+- **Quality Standards**: [Expected quality criteria]
 
 ## Executive Summary
-- **Key Finding**: [Primary discovery or recommendation]
-- **Impact**: [Business/technical impact]
-- **Action Required**: [Next steps or recommendations]
+*Will be populated after agent deployment and task completion*
+
+## Final Deliverables
+*Agent outputs will appear here after deployment and work completion*
 
 ## Detailed Analysis
 [Specific findings, recommendations, and supporting data]
