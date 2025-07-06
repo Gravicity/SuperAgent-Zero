@@ -45,6 +45,38 @@ fi
 
 print_success "Framework directory found"
 
+# Check framework components (directories)
+print_status "Checking framework structure..."
+if [ -f "$INSTALL_DIR/framework-registry.json" ]; then
+    echo "  ✅ Framework registry"
+else
+    echo "  ❌ Framework registry"
+fi
+
+if [ -f "$INSTALL_DIR/setup.sh" ]; then
+    echo "  ✅ Setup script"
+else
+    echo "  ❌ Setup script"
+fi
+
+if [ -d "$INSTALL_DIR/agents" ]; then
+    echo "  ✅ Agent framework"
+else
+    echo "  ❌ Agent framework"
+fi
+
+if [ -d "$INSTALL_DIR/agents/agent-00-command" ]; then
+    echo "  ✅ Agent 0 command center"
+else
+    echo "  ❌ Agent 0 command center"
+fi
+
+if [ -d "$INSTALL_DIR/bin" ]; then
+    echo "  ✅ Helper scripts"
+else
+    echo "  ❌ Helper scripts"
+fi
+
 # Check essential files
 essential_files=(
     "README.md"
