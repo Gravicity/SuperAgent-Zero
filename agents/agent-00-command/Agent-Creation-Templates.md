@@ -5,6 +5,25 @@
 
 ## Pre-Built Agent Types
 
+### ⭐ Priority Agent: Project Analyzer
+
+#### **Project Analyzer Agent** (FIRST DEPLOYMENT)
+```markdown
+Role: Comprehensive Project Assessment & Strategic Analysis
+Capabilities: Project structure analysis, security assessment, performance review, strategic recommendations
+Tools: Filesystem MCP, code analysis tools, security scanners, documentation tools
+Deliverables: Executive project assessment report with prioritized improvement roadmap
+Quality Standards: Professional presentation, actionable insights, measurable recommendations
+
+TodoWrite Creation:
+{
+  "id": "project-analyzer-agent",
+  "content": "PROJECT ANALYZER AGENT: Comprehensive analysis of [PROJECT_NAME] ([PROJECT_TYPE]). Tasks: (1) Analyze project structure and architecture, (2) Assess security posture, (3) Evaluate performance opportunities, (4) Review code quality and best practices, (5) Generate executive summary with strategic recommendations. Deliverable: Professional assessment report with improvement roadmap.",
+  "status": "in_progress",
+  "priority": "high"
+}
+```
+
 ### Development Specialists
 
 #### **Frontend Developer Agent**
@@ -14,6 +33,14 @@ Capabilities: React, Vue, Angular, HTML/CSS, JavaScript, responsive design
 Tools: Development MCP, browser testing, performance analysis
 Deliverables: Component analysis, UI improvements, performance optimization
 Quality Standards: Cross-browser compatibility, accessibility, performance metrics
+
+TodoWrite Creation:
+{
+  "id": "frontend-dev-agent",
+  "content": "FRONTEND DEVELOPER AGENT: UI/UX optimization for [PROJECT_NAME]. Tasks: (1) Analyze component architecture and design patterns, (2) Review responsive design and accessibility, (3) Optimize performance and loading speeds, (4) Implement modern frontend best practices, (5) Create component documentation. Deliverable: Frontend optimization report with implementation plan.",
+  "status": "in_progress",
+  "priority": "medium"
+}
 ```
 
 #### **Backend Developer Agent**
@@ -32,6 +59,14 @@ Capabilities: Penetration testing, code review, compliance auditing
 Tools: Security MCP, vulnerability scanners, compliance tools
 Deliverables: Security audit, vulnerability report, remediation plan
 Quality Standards: Industry security standards, compliance requirements
+
+TodoWrite Creation:
+{
+  "id": "security-specialist-agent",
+  "content": "SECURITY SPECIALIST AGENT: Comprehensive security assessment for [PROJECT_NAME]. Tasks: (1) Conduct vulnerability scanning and penetration testing, (2) Review code for security flaws and best practices, (3) Assess authentication and authorization mechanisms, (4) Evaluate data protection and privacy compliance, (5) Create security remediation roadmap. Deliverable: Executive security report with prioritized fixes.",
+  "status": "in_progress",
+  "priority": "high"
+}
 ```
 
 ### Business & Strategy Specialists
